@@ -1,0 +1,119 @@
+.card-widget {
+    border: 1px solid #ddd;
+    border-radius: 18px !important;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 20px auto;
+
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+
+        .header-left {
+            display: flex;
+            align-items: center;
+
+            .icon {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: #e7e7e7;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 10px;
+
+                i {
+                    font-size: 16px;
+                    color: #757575 !important;
+                }
+            }
+
+            .title {
+                font-size: 18px;
+                font-weight: bold;
+                margin: 0;
+            }
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+
+            .icon {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: #f0f0f0;
+                border: 1px solid rgb(156, 156, 156);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 10px;
+                cursor: pointer;
+
+                i {
+                    font-size: 16px;
+                }
+
+                &:hover {
+                    background-color: #e0e0e0;
+                }
+            }
+            
+        }
+        
+    }
+
+    .card-body {
+        padding: 15px;
+        max-height: 300px;
+        overflow: hidden;
+
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            background-color: transparent;
+
+            button {
+                background: transparent !important;
+            }
+
+            .tab {
+                background-color: #f0f0f0;
+                padding: 10px;
+                border: none;
+                cursor: pointer;
+                flex: 1;
+                text-align: center;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+
+                &.active {
+                    border-bottom: 1px solid #000;
+                    border-radius: 0px;
+                }
+
+                &:hover {
+                    background-color: #e0e0e0;
+                }
+            }
+        }
+
+        .tab-content {
+            .tab-pane {
+                display: none;
+
+                &.active {
+                    display: block;
+                }
+            }
+        }
+    }
+}

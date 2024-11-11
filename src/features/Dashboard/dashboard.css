@@ -1,0 +1,64 @@
+
+section{
+    margin: 0rem 17.8rem !important;
+}
+.container {
+    height: 73px;
+    margin-top: -20px;
+    display: flex !important;
+    
+    gap: 20px;
+}
+
+.search-container {
+    position: relative;
+    width: 75%;
+    min-width: 400px;
+
+}
+
+.search-container input {
+    width: 100%;
+    padding: 10px 40px 10px 35px;
+    /* Left and right padding to accommodate icons */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+}
+
+.search-container .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #888;
+}
+
+.search-container .bi-search {
+    left: 11px;
+    position: relative;
+    top: 36px;
+
+}
+
+.search-container .bi-mic {
+    left: 96%;
+    position: relative;
+    top: -35px;
+    transform: translate(10px, 10px);
+    font-size: 17px;
+}
+
+.grid-stack {
+    background: rgb(248, 248, 248);
+  }
+  
+  .grid-stack-item-content {
+    color: #2c3e50;
+    text-align: center;
+    /* background-color: #18bc9c; */
+  }
+  
+
+ 

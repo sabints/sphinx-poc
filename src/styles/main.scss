@@ -1,0 +1,17 @@
+
+.icon-drag {
+    opacity:0;
+    /* Start with the icon invisible */
+    transition: opacity 0.5s ease;
+    /* Smooth fade-in effect */
+    font-size: 24px;
+    /* Adjust icon size as needed */
+    color: #333;
+    /* Icon color */
+    &:hover{
+        cursor: pointer;
+    }
+    &:active{
+        cursor: grab;
+    }
+}
