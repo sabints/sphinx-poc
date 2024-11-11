@@ -1,8 +1,8 @@
 {
+  "homepage": "https://sabints.github.io/sphinx-poc/",
   "name": "sphinx_vite_react",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/sabints/sphinx-poc",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "doc -d build"
+    "deploy": "gh-pages -d docs"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
