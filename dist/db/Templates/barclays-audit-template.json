@@ -1,0 +1,195 @@
+{
+  "TemplateName": "DashboardTemplate",
+  "Widgets": [
+    {
+      "WidgetType": "ProfileWidget",
+      "WidgetName": "UserProfile",
+      "Header": {
+        "HeaderName": "Welcome, John Doe",
+        "HeaderRightName": "User Status"
+      },
+      "Content": "Senior Software Engineer with 10 years of experience in web development.",
+      "Profile": {
+        "ProfilePic": "https://example.com/images/johndoe.jpg",
+        "ProfileName": "John Doe"
+      },
+      "Status": "Active",
+      "Trend": "Positive",
+      "LastUpdated": "2024-11-11T08:30:00Z",
+      "layout": {
+        "i": "profile",
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 1,
+        "minW": 4,
+        "maxW": 12,
+        "minH": 0,
+        "maxH": 1,
+        "isDraggable": true,
+        "isResizable": false
+      }
+    },
+    {
+      "WidgetType": "ChartWidget",
+      "WidgetName": "SalesAnalytics",
+      "ChartTitle": "Quarterly Sales Performance",
+      "Subtitle": "Comparing sales across regions",
+      "Tabs": [
+        {
+          "TabName": "North America",
+          "TabContent": "Sales data for North America region.",
+          "Chart": {
+            "TypeOfChart": "bar",
+            "ChartData": {
+              "labels": [
+                "Q1",
+                "Q2",
+                "Q3",
+                "Q4"
+              ],
+              "datasets": [
+                {
+                  "label": "Sales ($)",
+                  "data": [
+                    120000,
+                    150000,
+                    170000,
+                    200000
+                  ],
+                  "backgroundColor": [
+                    "#4CAF50",
+                    "#FF9800",
+                    "#2196F3",
+                    "#9C27B0"
+                  ]
+                }
+              ]
+            },
+            "ChartOptions": {
+              "responsive": true,
+              "legend": {
+                "display": true,
+                "position": "top"
+              }
+            }
+          }
+          
+        },
+        {
+          "TabName": "Europe",
+          "TabContent": "Sales data for Europe region.",
+          "Chart": {
+            "TypeOfChart": "line",
+            "ChartData": {
+              "labels": [
+                "Q1",
+                "Q2",
+                "Q3",
+                "Q4"
+              ],
+              "datasets": [
+                {
+                  "label": "Sales ($)",
+                  "data": [
+                    100000,
+                    130000,
+                    160000,
+                    180000
+                  ],
+                  "borderColor": "#FF5733",
+                  "fill": false
+                }
+              ]
+            },
+            "ChartOptions": {
+              "responsive": true,
+              "legend": {
+                "display": true,
+                "position": "top"
+              }
+            }
+          }
+        },
+        {
+          "TabName": "Asia",
+          "TabContent": "Sales data for Asia region.",
+          "Chart": {
+            "TypeOfChart": "pie",
+            "ChartData": {
+              "labels": [
+                "Product A",
+                "Product B",
+                "Product C"
+              ],
+              "datasets": [
+                {
+                  "data": [
+                    40,
+                    35,
+                    25
+                  ],
+                  "backgroundColor": [
+                    "#FF6384",
+                    "#36A2EB",
+                    "#FFCE56"
+                  ]
+                }
+              ]
+            },
+            "ChartOptions": {
+              "responsive": true,
+              "legend": {
+                "display": true,
+                "position": "right"
+              }
+            }
+          }
+        }
+      ],
+      "Footer": "Data updated on 2024-11-10",
+      "layout": {
+        "i": "profile",
+        "x": 0,
+        "y": 4,
+        "w": 7,
+        "h": 1.2,
+        "minW": 1,
+        "maxW": 12,
+        "minH": 0.1,
+        "maxH": 2,
+        "isDraggable": true,
+        "isResizable": true
+      }
+    },
+    {
+      "WidgetType": "MediaWidget",
+      "WidgetName": "Media",
+      "Header": {
+        "HeaderName": "Welcome, John Doe",
+        "HeaderRightName": "User Status"
+      },
+      "Content": "Senior Software Engineer with 10 years of experience in web development.",
+      "Profile": {
+        "ProfilePic": "https://example.com/images/johndoe.jpg",
+        "ProfileName": "John Doe"
+      },
+      "Status": "Active",
+      "Trend": "Positive",
+      "LastUpdated": "2024-11-11T08:30:00Z",
+      "layout": {
+        "i": "profile",
+        "x": 5,
+        "y": 4,
+        "w": 7,
+        "h": 1.2,
+        "minW": 1,
+        "maxW": 12,
+        "minH": 1.2,
+        "maxH": 2,
+        "isDraggable": true,
+        "isResizable": true
+      }
+    }
+  ]
+}
