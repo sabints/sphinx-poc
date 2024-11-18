@@ -18,6 +18,7 @@ function DashBoard() {
         const param1 = queryParams.get('template');
         const fetchSampleTemplate = async () => {
             try {
+                debugger;
                 // Reference to the document
                 const docRef = doc(db, "Client - Barclays", param1 == undefined ? "Workspace-Templatev00" : param1);
 
@@ -27,7 +28,7 @@ function DashBoard() {
                 if (docSnap.exists()) {
 
                     const data = docSnap.data();
-                    setTemplateData(data.templateData);
+                    setTemplateData(data.pageLayout);
 
 
                 } else {
@@ -65,7 +66,7 @@ function DashBoard() {
                 <div className="navbar shadow-sm">
                     <div className="container">
                         <a href="#" className="navbar-brand d-flex">
-                            <img src="src/assets/images/barclays-logo.png" alt="" height="25px" width="auto" />
+                            <img src={import.meta.env.BASE_URL +"/src/assets/images/barclays-logo.png"} alt="" height="25px" width="auto" />
                         </a>
                         <div className="search-container">
                             <i className="bi bi-search"></i>
@@ -73,7 +74,7 @@ function DashBoard() {
                             <i className="bi bi-mic"></i>
                         </div>
                         <a href="#" className="navbar-brand d-flex">
-                            <img src="/src/assets/images/kpmg-logo.png" alt="" height="25px" width="auto" />
+                            <img src={import.meta.env.BASE_URL +"/src/assets/images/kpmg-logo.png"} alt="" height="25px" width="auto" />
                         </a>
                     </div>
                 </div>

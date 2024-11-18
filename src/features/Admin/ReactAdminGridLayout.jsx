@@ -6,14 +6,15 @@ import ProfileCard from "../../components/widgets/prodile-card/ProfileCard";
 import ChartCard from "../../components/widgets/chart-card/Chartcard";
 import MediaCard from "../../components/widgets/media-card/MediaCard";
 import { db } from '../../firebase';
-import { collection, getDocs, doc, Timestamp, setDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc, getDoc, updateDoc } from 'firebase/firestore';
 
 
 function ReactAdminGridLayout() {
-    const [layoutCollection, SetLaoutCollection] = useState([])
+    const [pageLayout, setPageLayout] = useState([])
     const [widgets, setWidgets] = useState([])
     const [templateList, setTemplateList] = useState([])
     const [selectedTemplateName, setTemplatename] = useState('');
+    const [selectedWidget, setSelectedWidget] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
 
@@ -45,7 +46,7 @@ function ReactAdminGridLayout() {
             const querySnapshot = await getDocs(collection(db, 'Client - Barclays'));
             const templatesdata = querySnapshot.docs.map((doc) => ({
                 templateName: doc.id,
-                data: doc.data().templateData
+                data: doc.data().pageLayout
             }))
             setTemplateList(templatesdata);
         }
@@ -60,9 +61,34 @@ function ReactAdminGridLayout() {
 
     // Handle layout change when a widget is dropped
     const onLayoutChange = (newLayout) => {
-        SetLaoutCollection([...layoutCollection, newLayout])
         setLayout(newLayout);
+        if (selectedWidget) {
+            const updatedWidget = newLayout.find((item) => item.i === selectedWidget.i);
+            if (updatedWidget) {
+                setSelectedWidget(updatedWidget); // Sync selected widget with its new values
+            }
+        }
+        formatPageLayout(newLayout);
     };
+
+    const formatPageLayout = (newlayout) => {
+        //Format The Page Layout
+        const templateName = selectedTemplateName == '' ? `Workspace-Templatev0${templateList.length}` : selectedTemplateName;
+        const layoutWidgets = newlayout.map((layoutItem) => {
+            const wdata = widgets.find(w => w.i == layoutItem.i.split('-')[0]);
+            if (wdata) {
+                return {
+                    templateName: templateName,
+                    layoutConfig: { ...layoutItem, isBounded: true, isDraggable: true, isResizable: true, resizeHandles: true },
+                    properties: wdata.properties
+                }
+
+            }
+        })
+        if (layoutWidgets) {
+            setPageLayout(layoutWidgets);
+        }
+    }
 
     // Handle the drag start event
     const onDragStart = (e, widget) => {
@@ -93,7 +119,9 @@ function ReactAdminGridLayout() {
             minH: widget.minH,
             maxW: widget.maxW,
             maxH: widget.maxH,
-            name: widget.id
+            isBounded: true,
+            isDraggable: true,
+            isResizable: true,
         };
 
         // Adjust positions of widgets on drop to avoid overlap
@@ -131,10 +159,11 @@ function ReactAdminGridLayout() {
     };
 
     function renderWidget(widgetData) {
-        let wname = widgetData.split('-')[0]
+        let wname = widgetData.i.split('-')[0]
+        const widget = widgets.find(w => w.i === wname);
         switch (wname) {
             case 'ProfileWidget':
-                return <ProfileCard />
+                return <ProfileCard {...widget} />
             case 'ChartWidget':
                 return <ChartCard />
             case 'MediaWidget':
@@ -143,30 +172,29 @@ function ReactAdminGridLayout() {
                 return <div>unknown widget</div>;
         }
     }
+
     async function saveTemplateData() {
         setIsLoading(true);
         try {
-            const templateData = layout.map((layoutItem) => {
-                const wdata = widgets.find(w => w.i == layoutItem.i.split('-')[0]);
-                if (wdata) {
-                    return {
-                        templateName: 'Sample Template',
-                        layoutConfig: { ...layoutItem, isBounded: true, isDraggable: true, isResizable: true, resizeHandles: true },
-                        properties: wdata.properties
-                    }
+            if (pageLayout) {
+                const docRef = doc(db, 'Client - Barclays', pageLayout[0].templateName)
+                // Save the templateData as a field within the Sample Template document
+                const dataToSave = {
+                    pageLayout: pageLayout,
+                    Timestamp: new Date()
+                };
+                // Check if the 'template' document exists
+                const docSnap = await getDoc(docRef);
+                if (docSnap.exists()) {
+                    await updateDoc(docRef, dataToSave);
+                } else {
 
+                    // Write to Firestore
+                    await setDoc(docRef, dataToSave);
                 }
-            })
-            const docRef = doc(db, 'Client - Barclays', selectedTemplateName == '' ? `Workspace-Templatev0${templateList.length}` : selectedTemplateName)
-            // Save the templateData as a field within the Sample Template document
-            const dataToSave = {
-                templateData, // Save the array of objects under the field "templateData"
-                Timestamp: new Date() // Additional metadata field
-            };
+                alert(`Saved ${selectedTemplateName}`)
+            }
 
-            // Write to Firestore
-            await setDoc(docRef, dataToSave);
-            alert(`Saved ${selectedTemplateName}`)
         } catch (error) {
             console.error("Error saving template:", error);
         } finally {
@@ -206,10 +234,28 @@ function ReactAdminGridLayout() {
         setLayout([]);
         setTemplatename('');
     }
-    const onGridItemSelec = (widget) => {
-        console.clear()
-        console.log(widget)
+    const onGridItemSelect = (widget) => {
+        setSelectedWidget(widget);
     }
+    const handleRemoveWidget = (widget, e) => {
+        const confirm = window.confirm('Removet Widget?')
+        if (confirm) {
+            const updatedLayout = layout.filter((item) => item.i !== widget);
+            setLayout(updatedLayout); // Update the state with the new layout
+            formatPageLayout(updatedLayout);
+        }
+    }
+    const updateSelectedWidget = (property, value) => {
+        const updatedWidget = { ...selectedWidget, [property]: value };
+        setSelectedWidget(updatedWidget);
+
+        // Update layout with the modified widget
+        const updatedLayout = layout.map((item) =>
+            item.i === updatedWidget.i ? updatedWidget : item
+        );
+        setLayout(updatedLayout);
+        formatPageLayout(updatedLayout);
+    };
     return (
         <div>
             <header data-bs-theme="light">
@@ -335,9 +381,16 @@ function ReactAdminGridLayout() {
                                     >
                                         {/* Dynamically render widgets based on the layout state */}
                                         {layout.map((item, index) => (
-                                            <div key={item.i} className="grid-item" onClick={(e) => onGridItemSelec(item)}  >
-
-                                                {renderWidget(item.i)}
+                                            <div key={item.i} className={`grid-item ${selectedWidget?.i === item.i ? "selected" : ""}`} onClick={(e) => onGridItemSelect(item)}   >
+                                                <div className="remove-item">
+                                                    <button
+                                                        className="remove-button"
+                                                        onClick={(e) => handleRemoveWidget(item.i, e)}
+                                                    >
+                                                        Remove  <i className="bi bi-trash"></i>
+                                                    </button>
+                                                </div>
+                                                {renderWidget(item)}
                                             </div>
                                         ))}
                                     </GridLayout>
@@ -348,66 +401,123 @@ function ReactAdminGridLayout() {
 
                     <div className="right-panel">
                         <div className='template-properties accordion' id='properties_controls'>
-                            <div className='accordion-item dimension'>
-                                <h2 className="accordion-header">
-                                    <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#widget_dimension" aria-expanded="true" aria-controls="widget_dimension">
-                                        Dimensions
-                                    </button>
-                                </h2>
-                                <div id="widget_dimension" className="accordion-collapse collapse show" data-bs-parent="#properties_controls">
-                                    <div className="accordion-body">
-                                        <div className='hw'>
-                                            <div>
+                            {
+                                selectedWidget && (
+                                    <div>
+                                        <div className='accordion-item dimension'>
+                                            <h2 className="accordion-header">
+                                                <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#widget_dimension" aria-expanded="true" aria-controls="widget_dimension">
+                                                    Dimensions
+                                                </button>
+                                            </h2>
+                                            <div id="widget_dimension" className="accordion-collapse collapse show" data-bs-parent="#properties_controls">
+                                                <div className="accordion-body">
+                                                    <div className='hw'>
+                                                        <div>
 
-                                                <span>Height</span>
-                                                <input type='text' placeholder='number' />
-                                            </div>
-                                            <div>
-                                                <span>Width</span><input type='text' placeholder='number' />
+                                                            <span>Height</span>
+                                                            <input
+                                                                type="number"
+                                                                value={selectedWidget.h}
+                                                                onChange={(e) =>
+                                                                    updateSelectedWidget("h", Number(e.target.value))
+                                                                }
+                                                            />
+                                                        </div>
+                                                        <div>
+                                                            <span>Width</span>
+                                                            <input
+                                                                type="number"
+                                                                value={selectedWidget.w}
+                                                                max={12}
+                                                                min={3}
+                                                                onChange={(e) =>
+                                                                    updateSelectedWidget("w", Number(e.target.value))
+                                                                }
+                                                            />
+                                                        </div>
+
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
-                                        <div className='mh-mh'>
-                                            <div>
-                                                <span>Min Height</span><input type='text' placeholder='number' />
-                                            </div>
-                                            <div>
-                                                <span>Max Height</span><input type='text' placeholder='number' />
+
+                                        <div className="accordion-item position">
+                                            <h2 className="accordion-header">
+                                                <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#widget_position" aria-expanded="true" aria-controls="widget_position">
+                                                    Position
+                                                </button>
+                                            </h2>
+                                            <div id="widget_position" className="accordion-collapse collapse  show" data-bs-parent="#properties_controls">
+                                                <div className="accordion-body">
+                                                    <div className='xy'>
+                                                        <div>
+                                                            <span>x </span>
+                                                            <input
+                                                                type="number"
+                                                                value={selectedWidget.x}
+                                                                onChange={(e) =>
+                                                                    updateSelectedWidget("x", Number(e.target.value))
+                                                                }
+                                                            />
+                                                        </div>
+                                                        <div>
+                                                            <span>Y</span> <input
+                                                                type="number"
+                                                                value={selectedWidget.y}
+                                                                onChange={(e) =>
+                                                                    updateSelectedWidget("y", Number(e.target.value))
+                                                                }
+                                                            />
+                                                        </div>
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className='mw-mw'>
-                                            <div>
-                                                <span>Min Width</span><input type='text' placeholder='number' />
-                                            </div>
-                                            <div>
-                                                <span>Max Width</span><input type='text' placeholder='number' />
+
+                                        <div className="accordion-item properties">
+                                            <h2 className="accordion-header">
+                                                <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#widget_properties" aria-expanded="true" aria-controls="widget_properties">
+                                                    Properties
+                                                </button>
+                                            </h2>
+                                            <div id="widget_properties" className="accordion-collapse collapse  show" data-bs-parent="#properties_controls">
+                                                <div className="accordion-body">
+                                                    {
+                                                        selectedWidget.widgetType == 'Profile' && (
+                                                            <div className='xy'>
+                                                                <div>
+                                                                    <span>Header Left</span>
+                                                                    <input
+                                                                        type="number"
+                                                                        value={selectedWidget.x}
+                                                                        onChange={(e) =>
+                                                                            updateSelectedWidget("x", Number(e.target.value))
+                                                                        }
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <span>Y</span> <input
+                                                                        type="number"
+                                                                        value={selectedWidget.y}
+                                                                        onChange={(e) =>
+                                                                            updateSelectedWidget("y", Number(e.target.value))
+                                                                        }
+                                                                    />
+                                                                </div>
+
+                                                            </div>
+                                                        )
+                                                    }
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            </div>
-
-                            <div className="accordion-item position">
-                                <h2 className="accordion-header">
-                                    <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#widget_position" aria-expanded="true" aria-controls="widget_position">
-                                        Position
-                                    </button>
-                                </h2>
-                                <div id="widget_position" className="accordion-collapse collapse  show" data-bs-parent="#properties_controls">
-                                    <div className="accordion-body">
-                                        <div className='xy'>
-                                            <div>
-                                                <span>X</span><input type='text' placeholder='number' />
-                                            </div>
-                                            <div>
-                                                <span>Y</span><input type='text' placeholder='number' />
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                )
+                            }
                         </div>
                     </div>
                 </div>

@@ -1,14 +1,15 @@
 
 import './profilecard.scss'
 import '../../../styles/widgets-global.scss'
+
 function ProfileCard() {
     return <div>
         <div className="card">
             <div className="card-header">
                 <span className="title">FY-2024 Final Audit</span>
-                {/* <div className='icon-drag'>
+                <div className='icon-drag'>
                     <i class="bi bi-arrows-move"></i>
-                </div> */}
+                </div>
                 <span className="amount-text">4,200,000,000</span>
             </div>
             <div className="card-body">
@@ -39,7 +40,7 @@ function ProfileCard() {
                         </a>
                     </div>
                     <div className="image-container">
-                        <img src="../src/assets/images/auditor.png" alt="" />
+                        <img src={import.meta.env.BASE_URL + "/src/assets/images/auditor.png"} alt="" />
                     </div>
                     <span className="profile-name">
                         Allie Baker, Sr. Auditor
