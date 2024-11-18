@@ -15,8 +15,8 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<HomePage />} />
-      <Route path='/interactive-dashboard' element={<DashBoard />} />
+      <Route path='/' element={<DashBoard />} />
+      {/* <Route path='/interactive-dashboard' element={<DashBoard />} /> */}
       <Route path='/admin/template-editor' element={<TemplateEditor />} /> 
       <Route path='/admin/admin-grid' element={<ReactAdminGridLayout />} /> 
     </Routes>
