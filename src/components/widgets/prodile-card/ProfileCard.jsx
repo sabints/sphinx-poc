@@ -39,7 +39,7 @@ function ProfileCard() {
                         </a>
                     </div>
                     <div className="image-container">
-                        <img src="src/assets/images/auditor.png" alt="" />
+                        <img src="../src/assets/images/auditor.png" alt="" />
                     </div>
                     <span className="profile-name">
                         Allie Baker, Sr. Auditor

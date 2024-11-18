@@ -5,34 +5,45 @@ import ChartCard from '../../components/widgets/chart-card/Chartcard';
 import DocumentCard from '../../components/widgets/document-card/DocumentCard';
 import MediaCard from '../../components/widgets/media-card/MediaCard';
 import GridLayout from 'react-grid-layout';
-import 'react-grid-layout/css/styles.css';
-import 'react-resizable/css/styles.css';
+import { db } from '../../firebase'
+import { doc, getDoc, getFirestore, setDoc } from 'firebase/firestore';
+import { useLocation } from 'react-router-dom';
+
 
 function DashBoard() {
     const [templateData, setTemplateData] = useState([]);
-    const layout = [
-        { i: 'profile', x: 0, y: 0, w: 12, h: 3.92 }, // Full-width profile widget
-        { i: 'chart', x: 0, y: 4, w: 5, h: 3.92 },   // Chart placed below the profile
-        { i: 'media', x: 5, y: 4, w: 7, h: 3.92 },    // Media placed beside the chart
-        { i: 'document', x: 0, y: 8, w: 7, h: 3.92 }  // Document below chart/media
-    ];
-
-
     useEffect(() => {
 
-        fetch('./db/Templates/barclays-audit-template.json')
-            .then((resoponse) => resoponse.json())
-            .then((wdata) => {
-                setTemplateData(wdata.Widgets);
-                console.log(templateData.length);
-            })
-            .catch((error) => {
-                console.log('Error loading JSON :', error)
-            })
+        const queryParams = new URLSearchParams(window.location.search)
+        const param1 = queryParams.get('template');
+        const fetchSampleTemplate = async () => {
+            try {
+                // Reference to the document
+                const docRef = doc(db, "Client - Barclays", param1 == undefined ? "Workspace-Templatev00" : param1);
+
+                // Fetch the document
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+
+                    const data = docSnap.data();
+                    setTemplateData(data.templateData);
+
+
+                } else {
+                    console.error("No such document exists!");
+                }
+            } catch (err) {
+                console.error("Error fetching document:", err);
+            }
+        };
+
+        fetchSampleTemplate();
     }, [])
 
     const renderWidget = (widget) => {
-        switch (widget.WidgetType) {
+        const wname = widget.layoutConfig.i.split('-')[0]
+        switch (wname) {
             case 'ProfileWidget':
                 return <ProfileCard data={widget} />;
             case 'ChartWidget':
@@ -85,25 +96,37 @@ function DashBoard() {
             </section> */}
             <section>
 
+                <div className="drop-zone">
+                    <GridLayout
+                        className="layout"
 
-                <GridLayout
-                    className="layout"
-                    layout={layout}
-                    cols={12}
-                    rowHeight={350}
-                    width={1200}
-                    draggableHandle=".icon-drag" // optional to add drag handle
-                >
-                    {
-                        templateData.map((widget, index) => (
+                        cols={12}
+                        // rowHeight={50}
+                        width={1250}
+                        margin={[0, 20]}
+                        allowOverlap={false}
+                        preventCollision={false}
+                        isBounded={true}
+                        isResizable={true}
+                        draggableHandle=".icon-drag" // optional to add drag handle
+                    >
+                        {
+                            templateData.map((widget, index) => (
 
-                            <div key={widget.WidgetName + `widget-${index}`} className="grid-stack-item-content" data-grid={widget.layout} >
-                                {renderWidget(widget)}
-                            </div>
-                        ))
-                    }
-                </GridLayout>
-
+                                <div key={widget.layoutConfig.i + `widget-${index}`} className="grid-stack-item-content" data-grid={{
+                                    x: widget.layoutConfig.x,
+                                    y: widget.layoutConfig.y,
+                                    w: widget.layoutConfig.w,
+                                    h: widget.layoutConfig.h,
+                                    minW: widget.layoutConfig.minW,
+                                    minH: widget.layoutConfig.minH
+                                }}  >
+                                    {renderWidget(widget)}
+                                </div>
+                            ))
+                        }
+                    </GridLayout>
+                </div>
 
             </section>
         </div>

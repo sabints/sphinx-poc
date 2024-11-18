@@ -51,12 +51,12 @@ section{
 }
 
 .grid-stack {
-    background: rgb(248, 248, 248);
+    /* background: rgb(248, 248, 248); */
   }
   
   .grid-stack-item-content {
     color: #2c3e50;
-    text-align: center;
+    /* text-align: center; */
     /* background-color: #18bc9c; */
   }
   
