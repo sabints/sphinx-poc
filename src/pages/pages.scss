@@ -1,0 +1,126 @@
+@import '../styles/variables.scss';
+.banner{
+    height: calc(100vh - 99px);
+    .container{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .banner_title{
+        font-weight: 300;
+        font-size: 42px;
+        padding-right: 10%;
+        line-height: 1.6;
+        
+        span{
+            font-weight: 700;
+            display: block;
+        }
+    }
+    .banner_txt{
+        padding-right: 10%;
+        .head_{
+            color: $Secondary-Light-Purple;
+            font-size: 24px;
+            margin-bottom: 30px;
+            display: block;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        .txt_style{
+            color: $bg-white;
+            line-height: 1.6;
+            font-weight: 400;
+            p{
+                font-size: 20px;
+            }
+        }
+        .btn_wrap{
+            text-align: center;
+            margin-top: 80px;
+        }
+    }
+}
+.strategy_value_sec{
+    background: $gradiant7;
+    .container{
+        
+    }
+    .lft_img{
+        img{
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+    .txt_box{
+        padding: 60px 0 60px 60px;
+        .head_{
+            font-size: 24px;
+            margin-bottom: 30px;
+            display: block;
+        }
+        .txt_style{
+            p{
+                font-size: 20px;
+                line-height: 1.6;
+            }
+        }
+    }
+}
+.engagmnt_team{
+    .team_hd{
+        font-size: $font-32;
+        margin-bottom: 30px;
+        display: block;
+    }
+    .team_detail{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        
+        .img_{
+            
+        }
+        .detail_box{
+            font-weight: 600;
+            font-size: $font-14;
+            p{
+                font-size: $font-14;
+            }
+            .name_design{
+                .name_{
+                    color: $light-Pink;
+                    font-size: $font-20;
+                    font-weight: 700;
+                    display: block;
+                }
+                .desig_{
+                    font-size: $font-body;
+                }
+            }
+            .contact_detail{
+                margin: 20px 0;
+                span{
+                    display: block;
+                }
+            }
+        }
+    }
+    .right_sec{
+        .team_detail{
+            margin-bottom: 20px;
+            .detail_box{
+                .contact_detail{ 
+                    margin: 0;
+                 }
+                .name_design{
+                    .name_,.desig_{
+                        
+                    }
+                } 
+            } 
+        } 
+    }
+    
+}
