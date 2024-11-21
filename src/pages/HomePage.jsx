@@ -50,7 +50,7 @@ function HomePage() {
       <section className='engagmnt_team section_'>
         <div className='container'>
           <label className='title_'>Your Engagement Team</label>
-          <div className='row'>
+          <div className='row align-items-center'>
             <div className='col-sm-6'>
               <div className='team_detail'>
                 <div className='img_'>
@@ -66,9 +66,9 @@ function HomePage() {
                     <span className='ph_mail'>e.neilsen@kpmg.uk.co</span>
                   </div>
                   <div className='addrs_'>
-                    <p>London - Canada Square
-                      15 Canada Square,
-                      Canary Wharf
+                    <p>London - Canada Square<br/>
+                      15 Canada Square,<br/>
+                      Canary Wharf<br/>
                       London, E14 5GL</p>
                   </div>
                 </div>
@@ -79,7 +79,7 @@ function HomePage() {
                 <div className='col-sm-6'>
                   <div className='team_detail'>
                     <div className='img_'>
-                      <img src={import.meta.env.BASE_URL + "/src/assets/images/team-img1.png"} alt="" width="auto" />
+                      <img src={import.meta.env.BASE_URL + "/src/assets/images/team-img2.png"} alt="" width="auto" />
                     </div>
                     <div className='detail_box'>
                       <div className='name_design'>
@@ -97,7 +97,7 @@ function HomePage() {
                 <div className='col-sm-6'>
                 <div className='team_detail'>
                     <div className='img_'>
-                      <img src={import.meta.env.BASE_URL + "/src/assets/images/team-img1.png"} alt="" width="auto" />
+                      <img src={import.meta.env.BASE_URL + "/src/assets/images/team-img3.png"} alt="" width="auto" />
                     </div>
                     <div className='detail_box'>
                       <div className='name_design'>
@@ -115,7 +115,7 @@ function HomePage() {
                 <div className='col-sm-6'>
                 <div className='team_detail'>
                     <div className='img_'>
-                      <img src={import.meta.env.BASE_URL + "/src/assets/images/team-img1.png"} alt="" width="auto" />
+                      <img src={import.meta.env.BASE_URL + "/src/assets/images/team-img4.png"} alt="" width="auto" />
                     </div>
                     <div className='detail_box'>
                       <div className='name_design'>
@@ -133,7 +133,7 @@ function HomePage() {
                 <div className='col-sm-6'>
                 <div className='team_detail'>
                     <div className='img_'>
-                      <img src={import.meta.env.BASE_URL + "/src/assets/images/team-img1.png"} alt="" width="auto" />
+                      <img src={import.meta.env.BASE_URL + "/src/assets/images/team-img5.png"} alt="" width="auto" />
                     </div>
                     <div className='detail_box'>
                       <div className='name_design'>

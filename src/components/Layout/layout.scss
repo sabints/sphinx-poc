@@ -12,20 +12,21 @@
     position: relative;
     .search-container {
         position: relative;
-        flex: 1;
+        flex: 1;    
         input {
             width: 100%;
-            padding: 10px 40px 10px 35px;
+            padding: 10px 40px 10px 45px;
             /* Left and right padding to accommodate icons */
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 20px;
             outline: none;
         }
-        i {
+        .search_icon {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            left: 15px;
             font-size: 18px;
             color: #1E49E2 !important;
         }
