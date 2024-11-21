@@ -1,23 +1,34 @@
 $black: #000000;
 $fontcolor:#F5F6FA;
-$bg-white: #F5F6FA; 
+$bg-white: #fff; 
 $ping-color:#FD349C;
-$bg-green: #44B02A;
+$light-Pink:#FFA3DA;
+$bg-green: #269924;
 $bg-blue:#0C233C;
+$Secondary-Light-Purple:#B497FF;
+
+
+
+
+
+
 $gradiant1:linear-gradient(265.13deg, rgba(37, 33, 180, 0.9) 17.69%, rgba(145, 65, 218, 0.9) 90.16%);
 $gradiant2: linear-gradient(180deg, #098E7E 0%, #1E49E2 100%);
 $gradiant3: linear-gradient(39.5deg, #2F4ADD 19.55%, #5E2CE3 66.6%);
 $gradiant4: linear-gradient(163.37deg, #2F4ADD 27.28%, #5E2CE3 88.49%);
 $gradiant5: linear-gradient(135deg, #7213EA 0%, #1E49E2 100%);
 $gradiant6: linear-gradient(178.19deg, #1E49E2 -19.57%, #10287C 98.47%);
+$gradiant7: linear-gradient(92.23deg, #9141DA -4.92%, #2521B4 98.79%);
 $font-body: 16px;
 $font-12: 12px;
 $font-13: 13px;
 $font-14: 14px;
 $font-15: 15px;
 $font-18: 18px;
+$font-20: 20px;
 $font-24: 24px;
-
+$font-32: 32px;
+$transition:all .3s ease-in-out;
 $fontfamily: "Open Sans", sans-serif;
 
 // $bg-header: #00338d;

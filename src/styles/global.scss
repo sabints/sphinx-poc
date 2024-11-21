@@ -12,6 +12,10 @@ p,h1,h2,h3,h4,h5{
     font-family: $fontfamily;
     font-size: $font-body;
 }
+
+a{
+    text-decoration: none !important;
+}
 .card-widget{
     border: none;
     border-radius: 0 !important;
@@ -26,7 +30,7 @@ p,h1,h2,h3,h4,h5{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 15px 10px;
+    padding: 15px 15px 10px !important;
     border: none !important;
     font-size: 24px;
     font-weight: 700;
@@ -78,4 +82,22 @@ img{
     &:active{
         cursor: grab;
     }
+}
+.btn_style{
+    background-color: $bg-green;   
+    color: $bg-white;
+    padding: 16px 33px;
+    font-size: $font-14;
+    transition: $transition;
+    &:hover{
+        background-color: $bg-blue;
+    }
+}
+.section_{
+    padding: 50px 0;
+}
+.title_{
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
 }

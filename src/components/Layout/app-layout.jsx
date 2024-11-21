@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import HeaderComponent from "./Header";
 import './layout.scss'
+import Footer from "./Footer";
 
 function AppLayuout() {
 
@@ -14,6 +15,7 @@ function AppLayuout() {
                 <main className="app-mainq">
                     <Outlet />
                 </main>
+                <Footer/>
             </div>
         </>
     )
