@@ -1,30 +1,30 @@
+@import '../../../styles/variables.scss';
 .card {
-    border-radius: 18px !important;
-    background: #6c6c6cdb !important;
-    color: #fff !important;
-
+    background: $gradiant1;
+    position: relative;
     .card-header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 15px 30px;
-        background: #4a4a4a !important;
-
-        font-weight: 500;
-        border-top-left-radius: 18px !important;
-        border-top-right-radius: 18px !important;
-        border: none;
+        span{
+            display: block;
+        }
+        .amount-text{
+            font-size: 16px;
+        }
         .icon-drag{
-            color: #fff !important;
+            color: $bg-white !important;
+            position: absolute;
+            top: 10px;
+            width: 20px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
         }
     }
 
     .card-body {
         padding: 25px 35px;
-        font-size: 16px;
         display: flex;
         flex-direction: row;
-
+        gap: 50px;
         .text-content-container {
             display: flex;
             flex-direction: column;
@@ -39,12 +39,15 @@
                 margin: 10px 0px;
 
                 span {
-                    background: #fff !important;
-                    color: #000 !important;
+                    background: $bg-white !important;
+                    color: $black !important;
                     padding: 3px 8px;
                     border-radius: 50px;
                     font-size: 12px;
                 }
+            }
+            .datetime{
+                font-size: $font-14;
             }
         }
 
@@ -53,17 +56,35 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-
-            img {
+            .image-container{
+                position: relative;
                 width: 200px;
-                height: auto;
+                height: 200px;
+                .video-link{
+                    cursor: pointer;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    transform: rotate(-10deg);
+                    i {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            img {
+                width: 100%;
+                height: 100%;
                 border-radius: 50%;
             }
 
             .edit {
                 cursor: pointer;
-                color: #fff !important;
-                border: 1px solid #fff !important;
+                color: $bg-white !important;
+                border: 1px solid $bg-white !important;
                 width: 35px;
                 height: 35px;
                 border-radius: 50%;
@@ -72,27 +93,22 @@
                 i {
                     top: 4px;
                     position: relative;
-                    color: #fff !important;
+                    color: $bg-white !important;
                 }
             }
-            .video-link{
-                cursor: pointer;
-                
-                border: 1px solid #fff !important;
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                position: absolute;
-                transform: translate(7.8rem,9rem);
-                i {
-                    top: -15px;
-                    left: 4px;
-                    position: relative;
-                    background: transparent;
-                    font-size:3.5rem;
-                    color: #fff !important;
+            .profile-name{
+                color: $ping-color;
+                font-size: $font-18;
+                font-weight: 700;
+                .role{
+                    color: $bg-white;
+                    font-size: $font-14;
+                    font-weight: 600;
+                    display: block;
                 }
             }
+            
+            
         }
     }
 }

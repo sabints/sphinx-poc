@@ -1,96 +1,43 @@
-.card-widget {
-    border: 1px solid #ddd;
-    border-radius: 18px !important;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+@import '../../../styles/variables.scss';
+.card-widget.media_card {
+    background: $gradiant2;
     width: 100%;
-    margin: 20px auto;
-
-
+    height: 100%;
     .card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px;
-        border-bottom: 1px solid #ddd;
-
+        .icon_ {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
         .header-left {
             display: flex;
             align-items: center;
-
-            .icon {
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                background-color: #e7e7e7;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-right: 10px;
-
-                i {
-                    font-size: 16px;
-                    color: #757575 !important;
-                }
-            }
-
-            .title {
-                font-size: 18px;
-                font-weight: bold;
-                margin: 0;
-            }
-
-            .sub-title {
+             .sub-title {
                 font-size: 14px;
             }
-            .header-style {
-                display: flex;
-                flex-direction: column;
-                margin: 0px 10px;
-                align-items: baseline;
-              }
+            
         }
 
-        .header-right {
-            display: flex;
-            align-items: center;
-
-            .icon {
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                background-color: #f0f0f0;
-                border: 1px solid rgb(156, 156, 156);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-left: 10px;
-                cursor: pointer;
-
-                i {
-                    font-size: 16px;
-                }
-
-                &:hover {
-                    background-color: #e0e0e0;
-                }
-            }
-        }
+        
     }
 
     .card-body {
         padding: 15px;
-        max-height: 350px;
         width: 100%;
         overflow-y: hidden;
        
         .media-preview {
             min-height: 300px;
-            background: #f0f0f0;
             display: grid;
             place-items: center;
-            i{
-                font-size: 50px;
+            width: 100%;
+            div{
+                width: 100%;
+                height: 100%;
+                iframe{
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
 

@@ -9,7 +9,7 @@ function DocumentCard() {
                     <div className="icon">
                         <i className="bi bi-file-text"></i>
                     </div>
-                    <div className='header-style'>
+                    <div className='widget-header-style'>
                         <h3 className="title">Document Title</h3>
                         <span className='sub-title'  >Document Sub Title / Short Description</span>
                     </div>

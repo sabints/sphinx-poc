@@ -1,0 +1,81 @@
+@import './variables.scss';
+
+body{
+    font-family: $fontfamily;
+    background-color: $bg-blue !important;   
+    font-size: $font-body;
+    padding: 0;  
+    color: $bg-white !important; 
+    
+}
+p,h1,h2,h3,h4,h5{
+    font-family: $fontfamily;
+    font-size: $font-body;
+}
+.card-widget{
+    border: none;
+    border-radius: 0 !important;
+    height: 100%;
+}
+.card{
+    border-radius: 0 !important;
+    height: 100%;
+    color: $bg-white;
+}
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px 10px;
+    border: none !important;
+    font-size: 24px;
+    font-weight: 700;
+    border: none;
+    .icon_ {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+    .title {
+        font-size: $font-24;
+        font-weight: bold;
+        margin: 0;
+        color: $fontcolor;
+    }
+}
+
+.react-grid-item{
+    border: none;
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+.widget-header-style {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px;
+    align-items: baseline;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-drag {
+    opacity:0;
+    /* Start with the icon invisible */
+    transition: opacity 0.5s ease;
+    /* Smooth fade-in effect */
+    font-size: 24px;
+    /* Adjust icon size as needed */
+    color: $bg-white;
+    /* Icon color */
+    &:hover{
+        cursor: pointer;
+    }
+    &:active{
+        cursor: grab;
+    }
+}

@@ -7,6 +7,7 @@ import ChartCard from "../../components/widgets/chart-card/Chartcard";
 import MediaCard from "../../components/widgets/media-card/MediaCard";
 import { db } from '../../firebase';
 import { collection, getDocs, doc, setDoc, getDoc, updateDoc } from 'firebase/firestore';
+import TextWidget from "../../components/widgets/Text/TextWidget";
 
 
 function ReactAdminGridLayout() {
@@ -35,8 +36,9 @@ function ReactAdminGridLayout() {
                 isBounded: true,
                 isDraggable: true,
                 isResizable: true,
-                resizeHandles: true,
-                properties: doc.data().properties
+                resizeHandles: [],
+                properties: doc.data().properties,
+                widgetType: doc.data().widgetType
             }));
             setWidgets(widgetsData);
         }
@@ -62,31 +64,37 @@ function ReactAdminGridLayout() {
     // Handle layout change when a widget is dropped
     const onLayoutChange = (newLayout) => {
         setLayout(newLayout);
-        if (selectedWidget) {
-            const updatedWidget = newLayout.find((item) => item.i === selectedWidget.i);
-            if (updatedWidget) {
-                setSelectedWidget(updatedWidget); // Sync selected widget with its new values
-            }
-        }
         formatPageLayout(newLayout);
     };
 
     const formatPageLayout = (newlayout) => {
         //Format The Page Layout
         const templateName = selectedTemplateName == '' ? `Workspace-Templatev0${templateList.length}` : selectedTemplateName;
-        const layoutWidgets = newlayout.map((layoutItem) => {
-            const wdata = widgets.find(w => w.i == layoutItem.i.split('-')[0]);
-            if (wdata) {
-                return {
-                    templateName: templateName,
-                    layoutConfig: { ...layoutItem, isBounded: true, isDraggable: true, isResizable: true, resizeHandles: true },
-                    properties: wdata.properties
-                }
-
+        const newPageLayout = newlayout.map((layoutItem) => {
+            const wproperties = widgets.find(x => x.i == layoutItem.i.split('-')[0])
+            return {
+                templateName: templateName,
+                layoutConfig: {
+                    i: layoutItem.i,
+                    x: Number(layoutItem.x || 0),   // Default value if not provided
+                    y: Number(layoutItem.y || 0),
+                    w: Number(layoutItem.w || 2),
+                    h: Number(layoutItem.h || 2),
+                    minW: Number(layoutItem.minW || 2),
+                    maxW: Number(layoutItem.maxW),
+                    minH: Number(layoutItem.minH || 2),
+                    maxH: Number(layoutItem.maxH),
+                    isBounded: layoutItem.isBounded,
+                    isDraggable: layoutItem.isDraggable,
+                    isResizable: layoutItem.isResizable,
+                    resizeHandles:[],
+                    widgetType: wproperties.widgetType
+                },
+                properties: layoutItem.properties == undefined ? wproperties.properties : layoutItem.properties
             }
         })
-        if (layoutWidgets) {
-            setPageLayout(layoutWidgets);
+        if (newPageLayout) {
+            setPageLayout(newPageLayout);
         }
     }
 
@@ -122,6 +130,8 @@ function ReactAdminGridLayout() {
             isBounded: true,
             isDraggable: true,
             isResizable: true,
+            widgetType: widget.widgetType,
+            properties: widget.properties
         };
 
         // Adjust positions of widgets on drop to avoid overlap
@@ -160,14 +170,16 @@ function ReactAdminGridLayout() {
 
     function renderWidget(widgetData) {
         let wname = widgetData.i.split('-')[0]
-        const widget = widgets.find(w => w.i === wname);
+        const widget = selectedWidget ? selectedWidget : widgets.find(w => w.i === wname);
         switch (wname) {
             case 'ProfileWidget':
-                return <ProfileCard {...widget} />
+                return <ProfileCard properties={widget.properties} />
             case 'ChartWidget':
                 return <ChartCard />
             case 'MediaWidget':
                 return <MediaCard />
+            case 'TextWidget':
+                return <TextWidget properties={widget.properties} />
             default:
                 return <div>unknown widget</div>;
         }
@@ -185,6 +197,8 @@ function ReactAdminGridLayout() {
                 };
                 // Check if the 'template' document exists
                 const docSnap = await getDoc(docRef);
+
+
                 if (docSnap.exists()) {
                     await updateDoc(docRef, dataToSave);
                 } else {
@@ -219,6 +233,8 @@ function ReactAdminGridLayout() {
                 isBounded: true,
                 isDraggable: true,
                 isResizable: true,
+                widgetTpye: doc.widgetType,
+                properties: doc.properties,
             }));
             setLayout(widgetsData);
             setTemplatename(template.templateName);
@@ -235,26 +251,39 @@ function ReactAdminGridLayout() {
         setTemplatename('');
     }
     const onGridItemSelect = (widget) => {
-        setSelectedWidget(widget);
+        const selected = { ...widgets.find(x => x.i == widget.i.split('-')[0]) };
+        selected.i = widget.i;
+        setSelectedWidget(selected);
     }
     const handleRemoveWidget = (widget, e) => {
         const confirm = window.confirm('Removet Widget?')
         if (confirm) {
             const updatedLayout = layout.filter((item) => item.i !== widget);
-            setLayout(updatedLayout); // Update the state with the new layout
-            formatPageLayout(updatedLayout);
+            // setLayout(updatedLayout); // Update the state with the new layout
+            // formatPageLayout(updatedLayout);
+            onLayoutChange(updatedLayout)
         }
     }
+    const updatePropertyValue = (widget, propertyName, newValue) => {
+        if (propertyName in widget) {
+            return { ...widget, [propertyName]: newValue };
+        } else if (propertyName in widget.properties) {
+            return {
+                ...widget,
+                properties: { ...widget.properties, [propertyName]: newValue },
+            };
+        }
+        return widget;
+    }
     const updateSelectedWidget = (property, value) => {
-        const updatedWidget = { ...selectedWidget, [property]: value };
-        setSelectedWidget(updatedWidget);
-
-        // Update layout with the modified widget
-        const updatedLayout = layout.map((item) =>
-            item.i === updatedWidget.i ? updatedWidget : item
-        );
-        setLayout(updatedLayout);
-        formatPageLayout(updatedLayout);
+        if (selectedWidget && selectedWidget.properties[property] !== value) {
+            const updatedWidget = updatePropertyValue(selectedWidget, property, value);
+            setSelectedWidget(updatedWidget);
+            const updatedLayout = layout.map((item) =>
+                item.i === updatedWidget.i ? updatedWidget : item
+            );
+            onLayoutChange(updatedLayout)
+        }
     };
     return (
         <div>
@@ -486,31 +515,93 @@ function ReactAdminGridLayout() {
                                             <div id="widget_properties" className="accordion-collapse collapse  show" data-bs-parent="#properties_controls">
                                                 <div className="accordion-body">
                                                     {
-                                                        selectedWidget.widgetType == 'Profile' && (
-                                                            <div className='xy'>
-                                                                <div>
-                                                                    <span>Header Left</span>
-                                                                    <input
-                                                                        type="number"
-                                                                        value={selectedWidget.x}
-                                                                        onChange={(e) =>
-                                                                            updateSelectedWidget("x", Number(e.target.value))
-                                                                        }
-                                                                    />
-                                                                </div>
-                                                                <div>
-                                                                    <span>Y</span> <input
-                                                                        type="number"
-                                                                        value={selectedWidget.y}
-                                                                        onChange={(e) =>
-                                                                            updateSelectedWidget("y", Number(e.target.value))
-                                                                        }
-                                                                    />
-                                                                </div>
+                                                        selectedWidget.widgetType == 'Text' && (
+                                                            <>
+                                                                <div className='xy'>
+                                                                    <div>
+                                                                        <span>Text</span>
+                                                                        <input
+                                                                            type="text"
+                                                                            value={selectedWidget.properties.Text}
+                                                                            onChange={(e) =>
+                                                                                updateSelectedWidget("Text", e.target.value)
+                                                                            }
+                                                                        />
+                                                                    </div>
+                                                                    <div>
+                                                                        <span>Font Size</span> <input
+                                                                            type="number"
+                                                                            value={selectedWidget.properties.FontSize}
+                                                                            onChange={(e) =>
+                                                                                updateSelectedWidget("FontSize", Number(e.target.value))
+                                                                            }
+                                                                        />
+                                                                    </div>
 
-                                                            </div>
+                                                                </div>
+                                                                <div className='xy'>
+                                                                    <div>
+                                                                        <span>Bold</span>
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            checked={selectedWidget.properties.IsBold === true}
+                                                                            onChange={(e) =>
+                                                                                updateSelectedWidget("IsBold", e.target.checked)
+                                                                            }
+                                                                        />
+                                                                    </div>
+                                                                    <div>
+                                                                        <span>Italics</span>
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            checked={selectedWidget.properties.Italics === false}
+                                                                            onChange={(e) =>
+                                                                                updateSelectedWidget("Italics", e.target.checked)
+                                                                            }
+                                                                        />
+                                                                    </div>
+                                                                    <div>
+                                                                        <span>Color</span>
+                                                                        <input
+                                                                            type="color"
+                                                                            value={selectedWidget.properties.Color || "#000000"}  // Default to black if color is not set
+                                                                            onChange={(e) => updateSelectedWidget("Color", e.target.value)}  // Update the color property
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </>
                                                         )
-                                                    }
+                                                    } {
+                                                        selectedWidget.widgetType == 'Profile' && (
+                                                            <>
+                                                                <div className='xy'>
+                                                                    <div>
+                                                                        <span>Header Left</span>
+                                                                        <input
+                                                                            type="text"
+                                                                            value={selectedWidget.properties.HeaderLeft}
+                                                                            onChange={(e) =>
+                                                                                updateSelectedWidget("HeaderLeft", e.target.value)
+                                                                            }
+                                                                        />
+                                                                    </div>
+
+
+                                                                </div>
+                                                                <div className='xy'>
+                                                                    <div>
+                                                                        <span>Header Right</span>
+                                                                        <input
+                                                                            type="text"
+                                                                            value={selectedWidget.properties.HeaderRight}
+                                                                            onChange={(e) =>
+                                                                                updateSelectedWidget("HeaderRight", e.target.value)
+                                                                            }
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </>
+                                                        )}
                                                 </div>
                                             </div>
                                         </div>
