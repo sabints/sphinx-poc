@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import React from 'react'
 
-export default function BalanceSheetTable({ data }) { 
+export default function BalanceSheetTable({ data }) {
     return (
         <>
             <div className='sheet-table'>
@@ -15,18 +15,20 @@ export default function BalanceSheetTable({ data }) {
                         <span>Balance</span>
                         <span><i className='bi bi-filter-left'></i></span>
                     </div>
-                    <div className='tools'>
+                    <div className='tools scrollable-column'>
                         <span>Top Audit Technologies Used</span>
                     </div>
                 </div>
                 <div className='sheet-columns'>
-                    {data.map((item) => (
-                        <div key={item.id} className='sheet-row'>
+                    {data.map((item,index) => (
+                        <div key={item.id +index} className='sheet-row'>
                             <div className='account sticky-column'>{item.account}</div>
-                            <div className='balance sticky-column'>{item.balance}</div>
+                            <div className='balance sticky-column'> 
+                                {Intl.NumberFormat().format(item.balance)}
+                            </div>
                             <div className='tools scrollable-column'>
                                 {item.tools.map((tool, index) => (
-                                    <span key={index} style={{ color: tool.color }}>
+                                    <span key={tool.toolname+index} style={{ backgroundColor: tool.color }}>
                                         {tool.toolname}
                                     </span>
                                 ))}

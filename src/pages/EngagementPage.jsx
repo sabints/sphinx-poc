@@ -3,9 +3,11 @@ import ProfileCard from '../components/widgets/prodile-card/ProfileCard';
 import ContentRibbonWidget from '../components/widgets/content-ribbon/ContentRibbon';
 import TechRoadmap from '../components/widgets/road-map/TechRoadmap';
 import BalanceSheetTable from '../components/widgets/engagement-components/balance-sheet-table/BalanceSheetTable';
+import ToolsWidget from '../components/widgets/engagement-components/tools-list/ToolsWidget';
 
 function EngagementPage() {
   const [data, setData] = useState([]);
+  const [toolData, setToolData] = useState({});
   useEffect(() => {
     const listData = [
       {
@@ -13,26 +15,23 @@ function EngagementPage() {
         account: 'Cash and Cash equivalents',
         balance: 30000000,
         tools: [
-          { toolname: 'Intrest Income Recalc', color: '' },
-          { toolname: 'KCw', color: '' },
-          { toolname: 'Data Snipper', color: '' },
-          { toolname: 'Revenue Trend Analysis', color: '' },
-          { toolname: 'KPMG Clara', color: '' },
-          { toolname: 'IRC', color: '' },
-          { toolname: 'Digital Media Analytics', color: '' },
+          { toolname: 'Intrest Income Recalc', color: '#3A8439' },
+          { toolname: 'KCw', color: '#C57316' },
+          { toolname: 'Data Snipper', color: '#9E4486' },
+          { toolname: 'Revenue Trend Analysis', color: '#BD952F' },
+          { toolname: 'KPMG Clara', color: '#C57316' },
+          { toolname: 'IRC', color: '#3A8439' },
+          { toolname: 'Digital Media Analytics', color: '#3455CC' },
         ]
       }, {
         id: '1',
         account: 'Property plant and equipments',
         balance: 30000000,
         tools: [
-          { toolname: 'Intrest Income Recalc', color: '' },
-          { toolname: 'KCw', color: '' },
-          { toolname: 'Data Snipper', color: '' },
-          { toolname: 'Revenue Trend Analysis', color: '' },
-          { toolname: 'KPMG Clara', color: '' },
-          { toolname: 'IRC', color: '' },
-          { toolname: 'Digital Media Analytics', color: '' },
+          { toolname: 'KCw', color: '#C57316' },
+          { toolname: 'Data Snipper', color: '#9E4486' },
+          { toolname: 'Revenue Trend Analysis', color: '#BD952F' },
+          { toolname: 'KPMG Clara', color: '#C57316' },
         ]
       }
       , {
@@ -40,13 +39,10 @@ function EngagementPage() {
         account: 'Trading portfolio assets',
         balance: 30000000,
         tools: [
-          { toolname: 'Intrest Income Recalc', color: '' },
-          { toolname: 'KCw', color: '' },
-          { toolname: 'Data Snipper', color: '' },
-          { toolname: 'Revenue Trend Analysis', color: '' },
-          { toolname: 'KPMG Clara', color: '' },
-          { toolname: 'IRC', color: '' },
-          { toolname: 'Digital Media Analytics', color: '' },
+          { toolname: 'Data Snipper', color: '#9E4486' },
+          { toolname: 'Revenue Trend Analysis', color: '#BD952F' },
+          { toolname: 'KPMG Clara', color: '#C57316' },
+          { toolname: 'IRC', color: '#3A8439' },
         ]
       }
       , {
@@ -54,17 +50,19 @@ function EngagementPage() {
         account: 'Current tax assets',
         balance: 30000000,
         tools: [
-          { toolname: 'Intrest Income Recalc', color: '' },
-          { toolname: 'KCw', color: '' },
-          { toolname: 'Data Snipper', color: '' },
-          { toolname: 'Revenue Trend Analysis', color: '' },
-          { toolname: 'KPMG Clara', color: '' },
-          { toolname: 'IRC', color: '' },
-          { toolname: 'Digital Media Analytics', color: '' },
+          { toolname: 'Intrest Income Recalc', color: '#3A8439' },
+          { toolname: 'KCw', color: '#C57316' },
+          { toolname: 'Data Snipper', color: '#9E4486' },
+          { toolname: 'Revenue Trend Analysis', color: '#BD952F' },
+          { toolname: 'KPMG Clara', color: '#C57316' },
+          { toolname: 'IRC', color: '#3A8439' },
+          { toolname: 'Digital Media Analytics', color: '#3455CC' },
         ]
       }
     ];
     setData(listData);
+
+    
   }, [])
   return (
     <>
@@ -266,7 +264,7 @@ function EngagementPage() {
                   </li>
                 </ul>
               </div>
-              General Audit Tools
+              <ToolsWidget   key='toolslist' />
             </div>
           </div>
         </section>
