@@ -13,8 +13,8 @@
         background: #1E49E2;
         gap: 25px;
         top: 0;
-        /* Stick header to the top */ 
-        z-index: 10; 
+        /* Stick header to the top */
+        z-index: 10;
 
         div {
             display: flex;
@@ -30,10 +30,27 @@
 
     .balance {
         min-width: 200px;
+        display: flex;
+        justify-content: flex-end;
+
+        span>i {
+            font-size: 30px;
+            position: absolute; 
+            top: -5px;
+            right: 4px;
+        }
     }
 
     .tools {
         width: auto;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        span {
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
     }
 
     .sheet-columns {
@@ -47,7 +64,7 @@
             flex-direction: row;
             padding: 1.5rem 2rem;
             gap: 25px;
-            align-items: center; 
+            align-items: center;
         }
     }
 }
@@ -55,10 +72,10 @@
 .sticky-column {
     position: sticky;
     left: 0;
-    /* Stick the column horizontally */ 
+    /* Stick the column horizontally */
     z-index: 5;
     min-width: 150px;
-    /* Set the width of sticky columns */ 
+    /* Set the width of sticky columns */
     text-align: left;
     padding: 5px;
 }
@@ -73,11 +90,12 @@
 }
 
 /* Add horizontal scrolling for the "Top Audit Technologies Used" column */
- 
- 
+
+
 
 /* For Firefox */
-.sheet-table, .scrollable-column {
+.sheet-table,
+.scrollable-column {
     scrollbar-width: thin;
     scrollbar-color: #b3b3b3 transparent;
 }
