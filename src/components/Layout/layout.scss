@@ -1,3 +1,4 @@
+@import '../../styles/variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 .app-layout{
     
@@ -5,7 +6,7 @@ font-family: 'Open Sans' !important;
 
 }
 .background-top {
-        // background-image: url('https://s3-alpha-sig.figma.com/img/f043/9762/116ca53ab1b3e3a81a01f18847acf12b?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GjUQMPtUc~YrQk1V-9AJhKTYvVRGIvN4xSXUiocfrlbxAJNlbc1IWKwfn4awdJbgB6H-1JkBtJkonTSP1lwfUBYrtkBBqetSMQFDkhE22C3LrZOov8MocpxG27qHHFUGtXZuUaG0s8-B8DKLvYY-MJSLtjoKdoDSMpqzgT12mgL-umxTHer3U~eaZomTi~78PnE9lvyeOqnW1sC7CXar08S7qx47N9Dppn2j59n1LjpfTtYM2OP1Eez~Be4YYS4RslokWvbyKdhXTywpL3QKobY0UY9eCxobSBzDO6qgzn0hTWO8VWYY~ohKPxC2~TiiY8o~at0vsCdIpv~Y~kGXmw__') !important;
+        background-image: url('https://s3-alpha-sig.figma.com/img/f043/9762/116ca53ab1b3e3a81a01f18847acf12b?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GjUQMPtUc~YrQk1V-9AJhKTYvVRGIvN4xSXUiocfrlbxAJNlbc1IWKwfn4awdJbgB6H-1JkBtJkonTSP1lwfUBYrtkBBqetSMQFDkhE22C3LrZOov8MocpxG27qHHFUGtXZuUaG0s8-B8DKLvYY-MJSLtjoKdoDSMpqzgT12mgL-umxTHer3U~eaZomTi~78PnE9lvyeOqnW1sC7CXar08S7qx47N9Dppn2j59n1LjpfTtYM2OP1Eez~Be4YYS4RslokWvbyKdhXTywpL3QKobY0UY9eCxobSBzDO6qgzn0hTWO8VWYY~ohKPxC2~TiiY8o~at0vsCdIpv~Y~kGXmw__') !important;
         height: 100vh;
         width: 100%;
         position: absolute;
@@ -17,13 +18,12 @@ font-family: 'Open Sans' !important;
 
     .header {
         position: relative;
-        padding-top: 30px;
         margin-right: 80px;
-
+ 
         .search-container {
             position: relative;
             flex: 1;
-
+ 
             input {
                 width: 100%;
                 padding: 15px 40px;
@@ -33,7 +33,7 @@ font-family: 'Open Sans' !important;
                 border-radius: 20px;
                 outline: none;
             }
-
+ 
             .search_icon {
                 position: absolute;
                 top: 50%;
@@ -42,16 +42,16 @@ font-family: 'Open Sans' !important;
                 font-size: 18px;
                 color: #1E49E2 !important;
             }
-
+ 
             .bi-search {
                 left: 11px;
                 position: absolute;
                 top: 25px;
-
+ 
             }
         }
     }
-
+ 
     .side-nav-bar {
         display: flex;
         width: 88px;
@@ -66,7 +66,7 @@ font-family: 'Open Sans' !important;
         position: absolute;
         top: 0;
         right: 35px;
-
+ 
         .profile {
             display: flex;
             font-size: 22px;
@@ -76,7 +76,7 @@ font-family: 'Open Sans' !important;
             padding: 9px;
             border-radius: 50%;
         }
-
+ 
         .menu {
             display: flex;
             padding-top: 29px;
@@ -85,15 +85,41 @@ font-family: 'Open Sans' !important;
             gap: 28px;
             align-self: stretch;
             font-size: 25px;
-
+ 
             div {
                 cursor: pointer;
             }
         }
     }
     .bread-crumbs{
-        padding-left: 14.5rem;
         position: relative;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
+        padding: 0 15px;
     }
-    
+
+
+    .footer{
+        padding-bottom: 50px;
+        .foot_list{
+            display: flex;
+            gap: 15px;
+            li{
+                a{
+                    color: $fontcolor;
+                }           
+            }
+        }
+        p{
+            a{
+                text-decoration: underline;
+            }
+        }
+    }
+
+.profile_banner{
+    height: calc(100vh - 144px);
+}
+
+ 
+
+ 

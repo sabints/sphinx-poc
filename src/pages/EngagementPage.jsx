@@ -66,9 +66,11 @@ function EngagementPage() {
   }, [])
   return (
     <>
-      <div className='container'>
-        <section>
+      
+        <section className='profile_banner'>
+        <div className='container'>
           <ProfileCard properties={{ HeaderLeft: "FY 2024 Final Audit", HeaderRight: "123132131" }} />
+          </div>
         </section>
         <section className='widget-full'>
           <ContentRibbonWidget properties={{
@@ -125,6 +127,7 @@ function EngagementPage() {
           }} />
         </section>
         <section className='account-table-section'>
+          <div className='container'>
           <label>FY 2024 Final Audit Accounts & Technologies</label>
           <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li className="nav-item" role="presentation">
@@ -222,7 +225,8 @@ function EngagementPage() {
                 </ul>
               </div>
               <div className='tech-roadmap'>
-                Tech Road Map
+                <img src={import.meta.env.BASE_URL + "/src/assets/images/headers.png"} alt="" width="auto" />
+                <img src={import.meta.env.BASE_URL + "/src/assets/images/table.png"} alt="" width="auto" />
               </div>
             </div>
             <div className="tab-pane pills-audit-tools fade" id="pills-audit-tools" role="tabpanel" aria-labelledby="pills-audit-tools-tab" tabindex="0">
@@ -267,8 +271,9 @@ function EngagementPage() {
               <ToolsWidget   key='toolslist' />
             </div>
           </div>
+          </div>
         </section>
-      </div>
+      
     </>
   )
 }

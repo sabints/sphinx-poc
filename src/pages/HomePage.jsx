@@ -47,6 +47,69 @@ function HomePage() {
         </div>
       </section>
 
+      <section className='audit_timeline_ section_'>
+        <div className='container'>
+          <div className='title_bar'>
+            <label className='title_'>Automating the Audit Since 2017</label>
+            <div className='filter_options'>
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  All Capability Areas
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">All Capability Areas1</a></li>
+                    <li><a class="dropdown-item" href="#">All Capability Areas</a></li>
+                    <li><a class="dropdown-item" href="#">All Capability Areas</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  All Business Units
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">All Business Units</a></li>
+                    <li><a class="dropdown-item" href="#">All Business Units</a></li>
+                    <li><a class="dropdown-item" href="#">All Business Units</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  All FS Captions
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">All FS Captions</a></li>
+                    <li><a class="dropdown-item" href="#">All FS Captions</a></li>
+                    <li><a class="dropdown-item" href="#">All FS Captions</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  All Years Deployed
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">All Years Deployed</a></li>
+                    <li><a class="dropdown-item" href="#">All Years Deployed</a></li>
+                    <li><a class="dropdown-item" href="#">All Years Deployed</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+          <div className='tech-roadmap'>
+            <img src={import.meta.env.BASE_URL + "/src/assets/images/headers.png"} alt="" width="auto" />
+            <img src={import.meta.env.BASE_URL + "/src/assets/images/table.png"} alt="" width="auto" />
+          </div>
+        </div>
+      </section>
+
       <section className='engagmnt_team section_'>
         <div className='container'>
           <label className='title_'>Your Engagement Team</label>
@@ -150,6 +213,14 @@ function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className='crent_engmnt section_'>
+        <div className='container'>
+          <div className='btn_wrap'>
+            <a href='#' className='btn_style'>View the Current Engagement <i class="bi bi-chevron-right"></i> </a>
           </div>
         </div>
       </section>

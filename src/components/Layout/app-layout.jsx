@@ -10,7 +10,7 @@ function AppLayuout() {
         <>
             <div className="app-layout">
                 <div className="background-top">
-                    <img src="" />
+                    
                 </div>
                 <HeaderComponent />
                 <main className="app-mainq">

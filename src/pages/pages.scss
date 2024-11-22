@@ -81,6 +81,37 @@
     }
 }
 
+
+.audit_timeline_{
+    .title_bar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title_{
+            margin: 0;
+        }
+        .filter_options{
+            display: flex;
+            gap: 20px;
+            select{
+                background: transparent;
+                border: none;
+                color: $fontcolor;
+                padding: 10px;
+                outline: 0;
+                option{
+                    background: $bg-blue;
+                    border: none;
+                    outline: 0;
+                }
+            }
+        }
+    }
+.tech-roadmap{
+    margin-top: 20px;
+}
+}
+
 .engagmnt_team {
     background: $gradiant6;
 
@@ -196,10 +227,13 @@
                 letter-spacing: 0.2px;
                 overflow-wrap: break-word;
                 border-radius: 0;
+                cursor: pointer;
+                &:focus{
+                    outline: 0;
+                }
             }
 
             .active {
-                border: 1px solid #fff;
                 background: #7213EA !important;
             }
         }
@@ -210,26 +244,18 @@
         margin: 25px 0px;
         display: flex;
         flex-direction: row;
+        gap: 20px;
+        
+    }
+}
 
-        .navbar-nav {
-            .nav-item {
-
-                button {
-                    padding: 0.5rem 2.2rem;
-                    background: transparent;
-                    border: none;
-                }
-
-                ul {
-                    position: absolute;
-                    inset: 0px auto auto 0px;
-                    margin: 0px;
-                    transform: translate(0px, 42.5px);
-                    background: rgb(10, 34, 59);
-                    border: none;
-                    border-top-right-radius: 0px;
-                    border-top-left-radius: 0px;
-                }
+.crent_engmnt{
+    .btn_wrap{
+        display: flex;
+        justify-content: flex-end;
+        .bi-chevron-right{
+            &::before{
+                font-weight: 700;
             }
         }
     }
