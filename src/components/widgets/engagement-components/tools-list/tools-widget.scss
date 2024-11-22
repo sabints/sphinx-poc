@@ -23,6 +23,17 @@
                     width: 150px;
                     height: 120px;
                 }
+                .content_{
+                    overflow: hidden;
+                    -o-text-overflow: ellipsis;
+                    text-overflow: ellipsis;
+                    -ms-text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 6;
+                    -ms-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    padding-right: 10px;
+                }
                 
              }
              .tool_btm {

@@ -90,7 +90,7 @@ export default function ToolsWidget() {
                             <div className='tool-container'>
                                 <div className='tool_top'>
                                 <img src={tool.imageUrl} alt={tool.toolName} className='tool-image' />
-                                <div>{tool.content}</div>
+                                <div className='content_'>{tool.content}</div>
                                 </div>
                                 <div className='tool_btm'>
                                     <h3>{tool.toolName}</h3>
