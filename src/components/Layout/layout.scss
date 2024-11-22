@@ -13,7 +13,7 @@ font-family: 'Open Sans' !important;
         z-index: -2;
         background-size: cover;
         background-clip: content-box;
-
+        
     }
 
     .header {
@@ -118,6 +118,11 @@ font-family: 'Open Sans' !important;
 
 .profile_banner{
     height: calc(67vh - 144px);
+    .container{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+    }
 }
 
  
