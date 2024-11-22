@@ -125,7 +125,7 @@ function DashBoard() {
                                         {renderWidget(widget)}
                                     </div>
                                 ))
-                            }
+                            } 
                         </GridLayout>
                     </div>
                 </div>

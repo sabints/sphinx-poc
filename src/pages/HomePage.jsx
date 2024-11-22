@@ -21,7 +21,7 @@ function HomePage() {
                   <p>At KPMG we believe that it is not just about reaching the right opinion, but how we reach that opinion. We consider risks to the quality of our audit in our engagement risk assessment and planning discussions.​</p>
                 </div>
                 <div className='btn_wrap'>
-                  <a href='#' className='btn_style'>View the Current Engagement</a>
+                  <a href='#/engagement' className='btn_style'>View the Current Engagement</a>
                 </div>
               </div>
             </div>
