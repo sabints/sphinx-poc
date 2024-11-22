@@ -1,0 +1,77 @@
+@import '../../../styles/variables.scss';
+
+.ribbon-widget { 
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    justify-content: flex-start;
+
+
+    .info-image {
+        flex-direction: row;
+        display: flex;
+        min-height: 250px;
+        background-image: linear-gradient(to right, #9141DA, #2521B4);
+
+        .img-container {
+            flex: 4;
+            padding-right: 12px;
+
+            img {
+                min-height: 250px;
+            }
+        }
+
+        .info-container {
+            flex: 8;
+            padding: 35px;
+        }
+    }
+
+    .ribbon-list {
+        display: flex;
+        flex-direction: row;
+
+        .items {
+            display: flex;
+            padding: 14px 40px;
+            flex: 1;
+            .item-content{
+                width: 518px;
+                padding: 50px 30px;
+                @media (min-width: 1400px) {
+                    width: 608px;
+                }
+            }
+            a{
+                color: #fff;
+                cursor: pointer;
+            }
+            ul{
+                line-height: 2.8rem;
+                li{
+                    list-style: inside;
+                    a{
+                        text-decoration: underline !important;
+                        &:hover{
+                            color: $link-blue !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .gradient-one {
+            background-image: linear-gradient(170deg, #2F4ADD, #5E2CE3); 
+            justify-content: flex-end;
+            .item-content{
+
+            }
+        }
+
+        .gradient-two {
+            background-image: linear-gradient(183deg, #098E7E, #1E49E2); 
+            justify-content: flex-start;
+        }
+    }
+}

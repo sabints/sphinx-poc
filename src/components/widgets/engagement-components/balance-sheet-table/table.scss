@@ -1,0 +1,83 @@
+.sheet-table {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    max-height: 400px;
+
+    /* Adjust based on your layout */
+    .sheet-header {
+        display: flex;
+        flex-direction: row;
+        padding: 1.5rem 2rem;
+        background: #1E49E2;
+        gap: 25px;
+        top: 0;
+        /* Stick header to the top */ 
+        z-index: 10; 
+
+        div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+    }
+
+    .account {
+        min-width: 250px;
+    }
+
+    .balance {
+        min-width: 200px;
+    }
+
+    .tools {
+        width: auto;
+    }
+
+    .sheet-columns {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+
+        /* Vertical scrolling for rows */
+        .sheet-row {
+            display: flex;
+            flex-direction: row;
+            padding: 1.5rem 2rem;
+            gap: 25px;
+            align-items: center; 
+        }
+    }
+}
+
+.sticky-column {
+    position: sticky;
+    left: 0;
+    /* Stick the column horizontally */ 
+    z-index: 5;
+    min-width: 150px;
+    /* Set the width of sticky columns */ 
+    text-align: left;
+    padding: 5px;
+}
+
+.scrollable-column {
+    flex: 1;
+    // overflow-x: auto;
+    /* Horizontal scrolling for this column */
+    white-space: nowrap;
+    text-align: left;
+    padding: 5px;
+}
+
+/* Add horizontal scrolling for the "Top Audit Technologies Used" column */
+ 
+ 
+
+/* For Firefox */
+.sheet-table, .scrollable-column {
+    scrollbar-width: thin;
+    scrollbar-color: #b3b3b3 transparent;
+}

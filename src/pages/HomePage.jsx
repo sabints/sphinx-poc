@@ -21,7 +21,7 @@ function HomePage() {
                   <p>At KPMG we believe that it is not just about reaching the right opinion, but how we reach that opinion. We consider risks to the quality of our audit in our engagement risk assessment and planning discussions.​</p>
                 </div>
                 <div className='btn_wrap'>
-                  <a href='#' className='btn_style'>View the Current Engagement</a>
+                  <a href='#/engagement' className='btn_style'>View the Current Engagement</a>
                 </div>
               </div>
             </div>
@@ -52,41 +52,58 @@ function HomePage() {
           <div className='title_bar'>
             <label className='title_'>Automating the Audit Since 2017</label>
             <div className='filter_options'>
-              <div className='select_box'>
-                <select className='select_'>
-                  <option>All Capability Areas</option>
-                  <option>All Capability Areas</option>
-                  <option>All Capability Areas</option>
-                  <option>All Capability Areas</option>
-                </select>
-              </div>
-              <div className='select_box'>
-                <select className='select_'>
-                  <option>All Business Units</option>
-                  <option>All Business Units</option>
-                  <option>All Business Units</option>
-                  <option>All Business Units</option>
-                </select>
-              </div>
-              <div className='select_box'>
-                <select className='select_'>
-                  <option>All FS Captions</option>
-                  <option>All FS Captions</option>
-                  <option>All FS Captions</option>
-                  <option>All FS Captions</option>
-                </select>
-              </div>
-              <div className='select_box'>
-                <select className='select_'>
-                  <option>All Years Deployed</option>
-                  <option>All Years Deployed</option>
-                  <option>All Years Deployed</option>
-                  <option>All Years Deployed</option>
-                </select>
-              </div>
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  All Capability Areas
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">All Capability Areas1</a></li>
+                    <li><a class="dropdown-item" href="#">All Capability Areas</a></li>
+                    <li><a class="dropdown-item" href="#">All Capability Areas</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  All Business Units
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">All Business Units</a></li>
+                    <li><a class="dropdown-item" href="#">All Business Units</a></li>
+                    <li><a class="dropdown-item" href="#">All Business Units</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  All FS Captions
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">All FS Captions</a></li>
+                    <li><a class="dropdown-item" href="#">All FS Captions</a></li>
+                    <li><a class="dropdown-item" href="#">All FS Captions</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  All Years Deployed
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">All Years Deployed</a></li>
+                    <li><a class="dropdown-item" href="#">All Years Deployed</a></li>
+                    <li><a class="dropdown-item" href="#">All Years Deployed</a></li>
+                  </ul>
+                </li>
+              </ul>
+
             </div>
           </div>
-          <div className='timeline_sec'>
+          <div className='tech-roadmap'>
             <img src={import.meta.env.BASE_URL + "/src/assets/images/headers.png"} alt="" width="auto" />
             <img src={import.meta.env.BASE_URL + "/src/assets/images/table.png"} alt="" width="auto" />
           </div>

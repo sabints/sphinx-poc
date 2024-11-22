@@ -1,26 +1,31 @@
 @import '../styles/variables.scss';
-.banner{
+
+.banner {
     height: calc(100vh - 99px);
-    .container{
+
+    .container {
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .banner_title{
+
+    .banner_title {
         font-weight: 300;
         font-size: 42px;
         padding-right: 10%;
         line-height: 1.6;
-        
-        span{
+
+        span {
             font-weight: 700;
             display: block;
         }
     }
-    .banner_txt{
+
+    .banner_txt {
         padding-right: 10%;
-        .head_{
+
+        .head_ {
             color: $Secondary-Light-Purple;
             font-size: 24px;
             margin-bottom: 30px;
@@ -28,46 +33,54 @@
             line-height: 1.2;
             font-weight: 700;
         }
-        .txt_style{
+
+        .txt_style {
             color: $bg-white;
             line-height: 1.6;
             font-weight: 400;
-            p{
+
+            p {
                 font-size: 20px;
             }
         }
-        .btn_wrap{
+
+        .btn_wrap {
             text-align: center;
             margin-top: 80px;
         }
     }
 }
-.strategy_value_sec{
+
+.strategy_value_sec {
     background: $gradiant7;
-    .container{
-        
-    }
-    .lft_img{
-        img{
+
+    .container {}
+
+    .lft_img {
+        img {
             object-fit: cover;
             height: 100%;
         }
     }
-    .txt_box{
+
+    .txt_box {
         padding: 60px 0 60px 60px;
-        .head_{
+
+        .head_ {
             font-size: 24px;
             margin-bottom: 30px;
             display: block;
         }
-        .txt_style{
-            p{
+
+        .txt_style {
+            p {
                 font-size: 20px;
                 line-height: 1.6;
             }
         }
     }
 }
+
 
 .audit_timeline_{
     .title_bar{
@@ -94,75 +107,146 @@
             }
         }
     }
-.timeline_sec{
+.tech-roadmap{
     margin-top: 20px;
 }
 }
 
-.engagmnt_team{
-    background: $gradiant6;    
-    .title_{
+.engagmnt_team {
+    background: $gradiant6;
+
+    .title_ {
         display: block;
     }
-    .team_detail{
+
+    .team_detail {
         display: flex;
         align-items: center;
         gap: 20px;
-        
-        .img_{
+
+        .img_ {
             width: 280px;
             height: 280px;
-            img{
+
+            img {
                 width: 100%;
                 height: 100%;
                 border-radius: 50%;
             }
         }
-        .detail_box{
+
+        .detail_box {
             font-weight: 600;
             font-size: $font-14;
-            p{
+
+            p {
                 font-size: $font-14;
             }
-            .name_design{
-                .name_{
+
+            .name_design {
+                .name_ {
                     color: $light-Pink;
                     font-size: $font-20;
                     font-weight: 700;
                     display: block;
                 }
-                .desig_{
+
+                .desig_ {
                     font-size: $font-body;
                 }
             }
-            .contact_detail{
+
+            .contact_detail {
                 margin: 20px 0;
-                span{
+
+                span {
                     display: block;
                 }
             }
         }
     }
-    .right_sec{
-        .team_detail{
+
+    .right_sec {
+        .team_detail {
             margin-bottom: 40px;
-            .img_{
+
+            .img_ {
                 width: 100px;
                 height: 100px;
             }
-            .detail_box{
-                .contact_detail{ 
+
+            .detail_box {
+                .contact_detail {
                     margin: 0;
-                 }
-                .name_design{
-                    .name_,.desig_{
+                }
+
+                .name_design {
+
+                    .name_,
+                    .desig_ {
                         font-size: $font-14;
                     }
-                } 
-            } 
-        } 
+                }
+            }
+        }
     }
-    
+
+}
+
+.account-table-section {
+    margin: 3rem 0rem;
+
+    label {
+
+        font-family: "Open Sans";
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 40px;
+        /* 125% */
+        letter-spacing: -0.5px;
+        margin-bottom: 2rem;
+    }
+
+    .nav {
+        gap: 25px;
+
+        .nav-item {
+            gap: 20px;
+
+            button {
+                padding: 16px 42px;
+                background: linear-gradient(135deg, rgb(114, 19, 234) 0%, rgb(30, 73, 226) 100%);
+                justify-content: center;
+                text-align: center;
+                color: rgb(251, 251, 251);
+                font-size: 16px;
+                font-family: "Open Sans";
+                font-weight: 600;
+                line-height: 2;
+                letter-spacing: 0.2px;
+                overflow-wrap: break-word;
+                border-radius: 0;
+                cursor: pointer;
+                &:focus{
+                    outline: 0;
+                }
+            }
+
+            .active {
+                background: #7213EA !important;
+            }
+        }
+
+    }
+
+    .filter-strip {
+        margin: 25px 0px;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        
+    }
 }
 
 .crent_engmnt{

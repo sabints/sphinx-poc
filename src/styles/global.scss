@@ -3,6 +3,7 @@
 body{
     font-family: $fontfamily;
     background-color: $bg-blue !important;   
+    
     font-size: $font-body;
     padding: 0;  
     color: $bg-white !important; 
@@ -107,5 +108,43 @@ ul{
     margin: 0;
     li{
         list-style: none;
+    }
+}
+.navbar-nav {
+    .nav-item {
+
+        button {
+            padding: 0.5rem 2.2rem 0.5rem 0;
+            background: transparent;
+            border: none;
+        }
+
+        ul {
+            position: absolute;
+            inset: 0px auto auto 0px;
+            margin: 0px;
+            transform: translate(0px, 42.5px);
+            background: rgb(10, 34, 59);
+            border: none;
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+        }
+    }
+}
+.dropdown .dropdown-toggle::after{
+    width: 12px;
+    height: 12px;
+    border: none;
+    background: url(../assets/images/dropdown-arrow.png) no-repeat;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.card-body{
+    color: $fontcolor !important;
+    .card-header{
+        background-color: transparent;
     }
 }
