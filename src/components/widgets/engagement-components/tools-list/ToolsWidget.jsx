@@ -82,17 +82,19 @@ export default function ToolsWidget() {
     }
     return (
         <>
-            <div class="conten  ">
+            <div class="tool_sec">
                 <span>{tdata.title}</span>
                 <div class="row row-cols-3">
                     {tdata.tools.map((tool, index) => (
                         <div class="col">
                             <div className='tool-container'>
+                                <div className='tool_top'>
                                 <img src={tool.imageUrl} alt={tool.toolName} className='tool-image' />
                                 <div>{tool.content}</div>
-                                <div className='too_btm'>
+                                </div>
+                                <div className='tool_btm'>
                                     <h3>{tool.toolName}</h3>
-                                    <span>Icon</span>
+                                    <span><img src={import.meta.env.BASE_URL + "/src/assets/images/expand-pink-icon.png"} alt="" width="auto" /></span>
                                 </div>
                             </div>
                         </div>
