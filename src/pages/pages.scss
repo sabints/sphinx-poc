@@ -68,6 +68,37 @@
         }
     }
 }
+
+.audit_timeline_{
+    .title_bar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title_{
+            margin: 0;
+        }
+        .filter_options{
+            display: flex;
+            gap: 20px;
+            select{
+                background: transparent;
+                border: none;
+                color: $fontcolor;
+                padding: 10px;
+                outline: 0;
+                option{
+                    background: $bg-blue;
+                    border: none;
+                    outline: 0;
+                }
+            }
+        }
+    }
+.timeline_sec{
+    margin-top: 20px;
+}
+}
+
 .engagmnt_team{
     background: $gradiant6;    
     .title_{
@@ -132,4 +163,11 @@
         } 
     }
     
+}
+
+.crent_engmnt{
+    .btn_wrap{
+        display: flex;
+        justify-content: flex-end;
+    }
 }
