@@ -1,7 +1,7 @@
 .sheet-table {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    // overflow-y: auto;
     /* Enable vertical scrolling */
     max-height: 400px;
 
@@ -15,7 +15,21 @@
         top: 0;
         /* Stick header to the top */
         z-index: 10;
-
+        position: relative;
+        &:before,&:after{
+            content: "";
+            position: absolute;
+            background: #1E49E2;
+            height: 100%;
+            width: 100%;
+            top: 0;
+        }
+        &:before{
+            left: -100%;
+        }
+        &:after{
+            right: -100%;
+        }
         div {
             display: flex;
             justify-content: space-between;
