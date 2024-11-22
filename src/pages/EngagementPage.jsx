@@ -62,72 +62,72 @@ function EngagementPage() {
     ];
     setData(listData);
 
-    
+
   }, [])
   return (
     <>
-      
-        <section className='profile_banner'>
+
+      <section className='profile_banner'>
         <div className='container'>
           <ProfileCard properties={{ HeaderLeft: "FY 2024 Final Audit", HeaderRight: "123132131" }} />
-          </div>
-        </section>
-        <section className='widget-full'>
-          <ContentRibbonWidget properties={{
-            image: "https://s3-alpha-sig.figma.com/img/e762/99d1/9859583517d9afa6c24dde29fdee8502?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Vr67zS0amfd9UHVn3A38~XZACtzgVTHoYWFqzdR2nEpsZYqFRtZzm9Bn8QTbBu9EcP0j5YkRjDKPMrE52f82-TEt2HRFUPnp1BpgvFjF3kDTmOGqD76IE7BkUeP9F-jbk0u0S1yLUNIJOrykBY4PE-yzJuArO-My3vBcqVF6k2Ej5rhnBfiYMcYf51zd1OjlbZ~fiASIkheTyraZFawSJ4TpLXRxwnZjvl5MMyj21mRiLFnoI2yjUf2Wxm~UKOmaKtNZe0mzJqqDo6G2zNXl4MVGnQI6d~Rs-fLQWQnTM1fUqxi8Z4znLPaWN33z~8VVFqbJiuQShO2wyqbRDUoINA__",
-            textContent: "",
-            heading: "Main Heading",
-            list: [
-              {
-                heading: "KPMG Insights",
-                listItem: [
+        </div>
+      </section>
+      <section className='widget-full'>
+        <ContentRibbonWidget properties={{
+          image: "https://s3-alpha-sig.figma.com/img/e762/99d1/9859583517d9afa6c24dde29fdee8502?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Vr67zS0amfd9UHVn3A38~XZACtzgVTHoYWFqzdR2nEpsZYqFRtZzm9Bn8QTbBu9EcP0j5YkRjDKPMrE52f82-TEt2HRFUPnp1BpgvFjF3kDTmOGqD76IE7BkUeP9F-jbk0u0S1yLUNIJOrykBY4PE-yzJuArO-My3vBcqVF6k2Ej5rhnBfiYMcYf51zd1OjlbZ~fiASIkheTyraZFawSJ4TpLXRxwnZjvl5MMyj21mRiLFnoI2yjUf2Wxm~UKOmaKtNZe0mzJqqDo6G2zNXl4MVGnQI6d~Rs-fLQWQnTM1fUqxi8Z4znLPaWN33z~8VVFqbJiuQShO2wyqbRDUoINA__",
+          textContent: "",
+          heading: "Main Heading",
+          list: [
+            {
+              heading: "KPMG Insights",
+              listItem: [
 
-                  {
-                    url: "https://somerandomeurl.com/#/page1",
-                    text: "KPMG Global Technology Report 2024"
-                  },
-                  {
-                    url: "https://somerandomeurl.com/#/page2",
-                    text: "Economic and Commercial Outlook - September 2024 "
-                  },
-                  {
-                    url: "https://somerandomeurl.com/#/page3",
-                    text: "Autumn Budget 2024: On-Demand Webinar"
-                  },
-                  {
-                    url: "https://somerandomeurl.com/#/page4",
-                    text: "Consumer Pulse October 2024"
-                  },
+                {
+                  url: "https://somerandomeurl.com/#/page1",
+                  text: "KPMG Global Technology Report 2024"
+                },
+                {
+                  url: "https://somerandomeurl.com/#/page2",
+                  text: "Economic and Commercial Outlook - September 2024 "
+                },
+                {
+                  url: "https://somerandomeurl.com/#/page3",
+                  text: "Autumn Budget 2024: On-Demand Webinar"
+                },
+                {
+                  url: "https://somerandomeurl.com/#/page4",
+                  text: "Consumer Pulse October 2024"
+                },
 
-                ]
-              }, {
-                heading: "Recent Updates",
-                listItem: [
+              ]
+            }, {
+              heading: "Recent Updates",
+              listItem: [
 
-                  {
-                    url: "https://somerandomeurl.com/#/page1",
-                    text: "KPMG Global Technology Report 2024"
-                  },
-                  {
-                    url: "https://somerandomeurl.com/#/page2",
-                    text: "Economic and Commercial Outlook - September 2024 "
-                  },
-                  {
-                    url: "https://somerandomeurl.com/#/page3",
-                    text: "Autumn Budget 2024: On-Demand Webinar"
-                  },
-                  {
-                    url: "https://somerandomeurl.com/#/page4",
-                    text: "Consumer Pulse October 2024"
-                  },
+                {
+                  url: "https://somerandomeurl.com/#/page1",
+                  text: "KPMG Global Technology Report 2024"
+                },
+                {
+                  url: "https://somerandomeurl.com/#/page2",
+                  text: "Economic and Commercial Outlook - September 2024 "
+                },
+                {
+                  url: "https://somerandomeurl.com/#/page3",
+                  text: "Autumn Budget 2024: On-Demand Webinar"
+                },
+                {
+                  url: "https://somerandomeurl.com/#/page4",
+                  text: "Consumer Pulse October 2024"
+                },
 
-                ]
-              }
-            ]
-          }} />
-        </section>
-        <section className='account-table-section'>
-          <div className='container'>
+              ]
+            }
+          ]
+        }} />
+      </section>
+      <section className='account-table-section'>
+        <div className='container'>
           <label>FY 2024 Final Audit Accounts & Technologies</label>
           <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li className="nav-item" role="presentation">
@@ -268,12 +268,12 @@ function EngagementPage() {
                   </li>
                 </ul>
               </div>
-              <ToolsWidget   key='toolslist' />
+              <ToolsWidget key='toolslist' />
             </div>
           </div>
-          </div>
-        </section>
-      
+        </div>
+      </section>
+
     </>
   )
 }

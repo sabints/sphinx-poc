@@ -11,7 +11,7 @@ function MediaCard() {
                     </div>
                     <div className='widget-header-style'>
                         <h3 className="title">Media Title</h3>
-                        {/* <span className='sub-title'  >Media Sub Title / Short Description</span> */}
+                        
                     </div>
                 </div>
                 <div className="header-right">
