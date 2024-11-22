@@ -169,5 +169,10 @@
     .btn_wrap{
         display: flex;
         justify-content: flex-end;
+        .bi-chevron-right{
+            &::before{
+                font-weight: 700;
+            }
+        }
     }
 }

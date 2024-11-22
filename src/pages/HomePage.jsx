@@ -203,7 +203,7 @@ function HomePage() {
       <section className='crent_engmnt section_'>
         <div className='container'>
           <div className='btn_wrap'>
-            <a href='#' className='btn_style'>View the Current Engagement</a>
+            <a href='#' className='btn_style'>View the Current Engagement <i class="bi bi-chevron-right"></i> </a>
           </div>
         </div>
       </section>
