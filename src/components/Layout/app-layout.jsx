@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import HeaderComponent from "./Header";
 import './layout.scss'
 import Footer from "./Footer";
+import NavbarComponent from "./Navbar";
 
 function AppLayuout() {
 
@@ -9,7 +10,7 @@ function AppLayuout() {
         <>
             <div className="app-layout">
                 <div className="background-top">
-                    
+                    <img src="" />
                 </div>
                 <HeaderComponent />
                 <main className="app-mainq">

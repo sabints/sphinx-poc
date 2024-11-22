@@ -17,6 +17,7 @@ function TextWidget({ properties }) {
                 display: 'flex', // Centers the text horizontally and vertically
                 alignItems: 'center',
                 justifyContent: 'flex-start',
+                background:transperant
             }}
         >
             <div className='icon-drag'>
