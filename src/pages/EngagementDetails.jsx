@@ -3,6 +3,7 @@ import ProfileCard from '../components/widgets/prodile-card/ProfileCard';
 import DocumentCard from '../components/widgets/document-card/DocumentCard';
 import MediaCard from '../components/widgets/media-card/MediaCard';
 import ChartCard from '../components/widgets/chart-card/Chartcard';
+import ToolsWidget from '../components/widgets/engagement-components/tools-list/ToolsWidget';
 
 
 function EngagementDetailsPage() {
@@ -37,6 +38,11 @@ function EngagementDetailsPage() {
               <ChartCard />
             </div>
           </div>
+        </div>
+      </section>
+      <section className='section'>
+        <div className='container'>
+          <ToolsWidget key='toolslist' />
         </div>
       </section>
     </>

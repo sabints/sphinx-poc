@@ -22,7 +22,9 @@ export default function BalanceSheetTable({ data }) {
                 <div className='sheet-columns'>
                     {data.map((item,index) => (
                         <div key={item.id +index} className='sheet-row'>
-                            <div className='account sticky-column'>{item.account}</div>
+                            <div className='account sticky-column'>
+                                <a href='#/engagement-details'>{item.account}</a>
+                            </div>
                             <div className='balance sticky-column'> 
                                 {Intl.NumberFormat().format(item.balance)}
                             </div>

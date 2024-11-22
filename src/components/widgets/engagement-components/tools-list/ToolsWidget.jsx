@@ -83,7 +83,7 @@ export default function ToolsWidget() {
     return (
         <>
             <div class="tool_sec">
-                <span>{tdata.title}</span>
+                <h3>{tdata.title}</h3>
                 <div class="row row-cols-3">
                     {tdata.tools.map((tool, index) => (
                         <div class="col">
