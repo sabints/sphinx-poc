@@ -6,7 +6,7 @@ function HeaderComponent() {
     const [pageName, setPageName] = useState('')
     const [parameterName, setParameterName] = useState('')
     useEffect(() => {
-        setPageName(window.location.hash.replace('#/', ''))
+        setPageName(window.location.hash.replace('#/', '')) 
     }, [])
     return (<>
         <header className='header' data-bs-theme="light">
