@@ -21,7 +21,7 @@ function TextWidget({ properties }) {
             }}
         >
             <div className='icon-drag'>
-                <i class="bi bi-arrows-move"></i>
+                <i className="bi bi-arrows-move"></i>
             </div>
             {Text ? Text :'Place Holder Text'}
         </div>

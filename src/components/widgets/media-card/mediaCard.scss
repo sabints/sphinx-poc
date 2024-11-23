@@ -1,6 +1,6 @@
-@import '../../../styles/variables.scss';
+@use './../../../styles/variables.scss' as vars;
 .card-widget.media_card {
-    background: $gradiant2;
+    background: vars.$gradiant2;
     width: 100%;
     height: 100%;
     .card-header {

@@ -20,17 +20,17 @@ export default function BalanceSheetTable({ data }) {
                     </div>
                 </div>
                 <div className='sheet-columns'>
-                    {data.map((item,index) => (
-                        <div key={item.id +index} className='sheet-row'>
+                    {data.map((item, index) => (
+                        <div key={item.id + index} className='sheet-row'>
                             <div className='account sticky-column'>
                                 <a href='#/engagement-details'>{item.account}</a>
                             </div>
-                            <div className='balance sticky-column'> 
+                            <div className='balance sticky-column'>
                                 {Intl.NumberFormat().format(item.balance)}
                             </div>
                             <div className='tools scrollable-column'>
                                 {item.tools.map((tool, index) => (
-                                    <span key={tool.toolname+index} style={{ backgroundColor: tool.color }}>
+                                    <span key={tool.toolname + index} style={{ backgroundColor: tool.color }}>
                                         {tool.toolname}
                                     </span>
                                 ))}
@@ -43,14 +43,18 @@ export default function BalanceSheetTable({ data }) {
     )
 }
 
-BalanceSheetTable.PropTypes = {
-    data: PropTypes.arrayOf({
-        id: PropTypes.string,
-        account: PropTypes.string,
-        balance: PropTypes.number,
-        tools: PropTypes.arrayOf({
-            toolname: PropTypes.string,
-            color: PropTypes.string
+BalanceSheetTable.propTypes = {
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string,
+            account: PropTypes.string,
+            balance: PropTypes.number,
+            tools: PropTypes.arrayOf(
+                PropTypes.shape({
+                    toolname: PropTypes.string,
+                    color: PropTypes.string,
+                })
+            ),
         })
-    })
+    ),
 }

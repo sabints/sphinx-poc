@@ -1,4 +1,3 @@
-import { property } from 'lodash';
 import PropTypes from 'prop-types'
 import './ribbon.scss'
 
@@ -57,7 +56,7 @@ function ContentRibbonWidget({ properties }) {
     )
 }
 
-ContentRibbonWidget.PropTypes = {
+ContentRibbonWidget.propTypes = {
     properties: PropTypes.shape({
         image: PropTypes.string,
         heading: PropTypes.string,

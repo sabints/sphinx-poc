@@ -1,6 +1,6 @@
 import React from 'react';
 import './tools-widget.scss';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 export default function ToolsWidget() {
     const tdata = {
@@ -82,19 +82,19 @@ export default function ToolsWidget() {
     }
     return (
         <>
-            <div class="tool_sec">
+            <div className="tool_sec">
                 <h3>{tdata.title}</h3>
-                <div class="row row-cols-3">
+                <div className="row row-cols-3">
                     {tdata.tools.map((tool, index) => (
-                        <div class="col">
-                            <div className='tool-container'>
-                                <div className='tool_top'>
-                                <img src={tool.imageUrl} alt={tool.toolName} className='tool-image' />
-                                <div className='content_'>{tool.content}</div>
+                        <div className="col" key={tool+index}>
+                            <div className='tool-container'  key={`container_${tool+index}`}>
+                                <div className='tool_top' key={`ditop__${tool+index}`}>
+                                <img src={tool.imageUrl} alt={tool.toolName} className='tool-image' key={`image_${tool+index}`} />
+                                <div className='content_' key={`content_${tool+index}`}>{tool.content}</div>
                                 </div>
-                                <div className='tool_btm'>
+                                <div className='tool_btm' key={`btm_${tool+index}`}>
                                     <h3>{tool.toolName}</h3>
-                                    <span><img src={import.meta.env.BASE_URL + "/src/assets/images/expand-pink-icon.png"} alt="" width="auto" /></span>
+                                    <span><img src={import.meta.env.BASE_URL + "images/expand-pink-icon.png"} alt="" width="auto" /></span>
                                 </div>
                             </div>
                         </div>

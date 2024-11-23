@@ -1,4 +1,4 @@
-@import '../../../styles/variables.scss';
+@use '../../../styles/variables.scss' as vars;
 
 .ribbon-widget { 
     display: flex;
@@ -54,7 +54,7 @@
                     a{
                         text-decoration: underline !important;
                         &:hover{
-                            color: $link-blue !important;
+                            color: vars.$link-blue !important;
                         }
                     }
                 }

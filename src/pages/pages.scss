@@ -1,4 +1,5 @@
-@import '../styles/variables.scss';
+
+@use './../styles/variables.scss' as vars;
 
 .banner {
     height: calc(67vh - 99px);
@@ -26,7 +27,7 @@
         padding-right: 10%;
 
         .head_ {
-            color: $Secondary-Light-Purple;
+            color: vars.$Secondary-Light-Purple;
             font-size: 24px;
             margin-bottom: 30px;
             display: block;
@@ -35,7 +36,7 @@
         }
 
         .txt_style {
-            color: $bg-white;
+            color: vars.$bg-white;
             line-height: 1.6;
             font-weight: 400;
 
@@ -52,7 +53,7 @@
 }
 
 .strategy_value_sec {
-    background: $gradiant7;
+    background: vars.$gradiant7;
 
     .container {}
 
@@ -99,12 +100,12 @@
             select {
                 background: transparent;
                 border: none;
-                color: $fontcolor;
+                color: vars.$fontcolor;
                 padding: 10px;
                 outline: 0;
 
                 option {
-                    background: $bg-blue;
+                    background: vars.$bg-blue;
                     border: none;
                     outline: 0;
                 }
@@ -118,7 +119,7 @@
 }
 
 .engagmnt_team {
-    background: $gradiant6;
+    background: vars.$gradiant6;
 
     .title_ {
         display: block;
@@ -142,22 +143,22 @@
 
         .detail_box {
             font-weight: 600;
-            font-size: $font-14;
+            font-size: vars.$font-14;
 
             p {
-                font-size: $font-14;
+                font-size: vars.$font-14;
             }
 
             .name_design {
                 .name_ {
-                    color: $light-Pink;
-                    font-size: $font-20;
+                    color: vars.$light-Pink;
+                    font-size: vars.$font-20;
                     font-weight: 700;
                     display: block;
                 }
 
                 .desig_ {
-                    font-size: $font-body;
+                    font-size: vars.$font-body;
                 }
             }
 
@@ -189,7 +190,7 @@
 
                     .name_,
                     .desig_ {
-                        font-size: $font-14;
+                        font-size: vars.$font-14;
                     }
                 }
             }
@@ -241,6 +242,7 @@
 
             .active {
                 background: #7213EA !important;
+                border: 1px solid #fff !important;
             }
         }
 

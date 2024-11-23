@@ -7,7 +7,7 @@ function MediaCard() {
             <div className="card-header">
                 <div className="header-left">
                     <div className="icon_ tv_icon">
-                        <img src={import.meta.env.BASE_URL +"/src/assets/images/tv-icon.svg"} alt="" width="auto" />
+                        <img src={import.meta.env.BASE_URL +"images/tv-icon.svg"} alt="" width="auto" />
                     </div>
                     <div className='widget-header-style'>
                         <h3 className="title">Media Title</h3>
@@ -19,10 +19,10 @@ function MediaCard() {
                         <i className="bi bi-arrows-move"></i>
                     </div>
                     <div className="icon_ comment-icon">
-                        <img src={import.meta.env.BASE_URL +"/src/assets/images/chat-icon.svg"} alt="" width="auto" />
+                        <img src={import.meta.env.BASE_URL +"images/chat-icon.svg"} alt="" width="auto" />
                     </div>
                     <div className="icon_ expand-icon">
-                        <img src={import.meta.env.BASE_URL +"/src/assets/images/expand-icon.svg"} alt="" width="auto" />
+                        <img src={import.meta.env.BASE_URL +"images/expand-icon.svg"} alt="" width="auto" />
                     </div>
                 </div>
             </div>
