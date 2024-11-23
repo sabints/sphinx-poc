@@ -11,7 +11,7 @@ function ProfileCard({ properties }) {
                     <div className="card-header">
                     <span className="title">{HeaderLeft}</span>
                         <div className='icon-drag'>
-                            <i class="bi bi-arrows-move"></i>
+                            <i className="bi bi-arrows-move"></i>
                         </div>
                         <span className="amount-text">{HeaderRight}</span>
                     </div>
@@ -41,11 +41,11 @@ function ProfileCard({ properties }) {
                         </a>
                     </div>
                     <div className="image-container">
-                        <img src={import.meta.env.BASE_URL + "/src/assets/images/auditor.png"} alt="" />
+                        <img src={import.meta.env.BASE_URL + "images/auditor.png"} alt="" />
                         <div className="video-link">
                         <a href="">
                             <i className="play_icon">
-                            <img src={import.meta.env.BASE_URL + "/src/assets/images/play-icon.svg"} alt="" />
+                            <img src={import.meta.env.BASE_URL + "images/play-icon.svg"} alt="" />
                             </i>
                         </a>
                     </div>

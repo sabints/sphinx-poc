@@ -1,7 +1,8 @@
-@import '../styles/variables.scss';
+
+@use './../styles/variables.scss' as vars;
 
 .banner {
-    height: calc(100vh - 99px);
+    height: calc(67vh - 99px);
 
     .container {
         height: 100%;
@@ -26,7 +27,7 @@
         padding-right: 10%;
 
         .head_ {
-            color: $Secondary-Light-Purple;
+            color: vars.$Secondary-Light-Purple;
             font-size: 24px;
             margin-bottom: 30px;
             display: block;
@@ -35,7 +36,7 @@
         }
 
         .txt_style {
-            color: $bg-white;
+            color: vars.$bg-white;
             line-height: 1.6;
             font-weight: 400;
 
@@ -52,7 +53,7 @@
 }
 
 .strategy_value_sec {
-    background: $gradiant7;
+    background: vars.$gradiant7;
 
     .container {}
 
@@ -82,38 +83,43 @@
 }
 
 
-.audit_timeline_{
-    .title_bar{
+.audit_timeline_ {
+    .title_bar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .title_{
+
+        .title_ {
             margin: 0;
         }
-        .filter_options{
+
+        .filter_options {
             display: flex;
             gap: 20px;
-            select{
+
+            select {
                 background: transparent;
                 border: none;
-                color: $fontcolor;
+                color: vars.$fontcolor;
                 padding: 10px;
                 outline: 0;
-                option{
-                    background: $bg-blue;
+
+                option {
+                    background: vars.$bg-blue;
                     border: none;
                     outline: 0;
                 }
             }
         }
     }
-.tech-roadmap{
-    margin-top: 20px;
-}
+
+    .tech-roadmap {
+        margin-top: 20px;
+    }
 }
 
 .engagmnt_team {
-    background: $gradiant6;
+    background: vars.$gradiant6;
 
     .title_ {
         display: block;
@@ -137,22 +143,22 @@
 
         .detail_box {
             font-weight: 600;
-            font-size: $font-14;
+            font-size: vars.$font-14;
 
             p {
-                font-size: $font-14;
+                font-size: vars.$font-14;
             }
 
             .name_design {
                 .name_ {
-                    color: $light-Pink;
-                    font-size: $font-20;
+                    color: vars.$light-Pink;
+                    font-size: vars.$font-20;
                     font-weight: 700;
                     display: block;
                 }
 
                 .desig_ {
-                    font-size: $font-body;
+                    font-size: vars.$font-body;
                 }
             }
 
@@ -184,7 +190,7 @@
 
                     .name_,
                     .desig_ {
-                        font-size: $font-14;
+                        font-size: vars.$font-14;
                     }
                 }
             }
@@ -228,13 +234,15 @@
                 overflow-wrap: break-word;
                 border-radius: 0;
                 cursor: pointer;
-                &:focus{
+
+                &:focus {
                     outline: 0;
                 }
             }
 
             .active {
                 background: #7213EA !important;
+                border: 1px solid #fff !important;
             }
         }
 
@@ -245,18 +253,41 @@
         display: flex;
         flex-direction: row;
         gap: 20px;
-        
+
     }
 }
 
-.crent_engmnt{
-    .btn_wrap{
+.crent_engmnt {
+    .btn_wrap {
         display: flex;
         justify-content: flex-end;
-        .bi-chevron-right{
-            &::before{
+
+        .bi-chevron-right {
+            &::before {
                 font-weight: 700;
             }
         }
+    }
+}
+
+.section {
+    background: linear-gradient(0deg, rgba(145, 65, 218, 0.10) 0%, rgba(37, 33, 180, 0.10) 100%), #0C233C;
+
+    .sec_link {
+        padding: 15px 0px;
+        a{
+            text-decoration: underline !important;
+        }
+    }
+
+
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .col{
+        margin-bottom: 16px !important;
     }
 }

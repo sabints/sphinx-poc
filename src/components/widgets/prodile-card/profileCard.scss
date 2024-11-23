@@ -1,6 +1,6 @@
-@import '../../../styles/variables.scss';
+@use '../../../styles/variables.scss' as vars;
 .card {
-    background: $gradiant1;
+    background: vars.$gradiant1;
     position: relative;
     .card-header {
         span{
@@ -10,7 +10,7 @@
             font-size: 16px;
         }
         .icon-drag{
-            color: $bg-white !important;
+            color: vars.$bg-white !important;
             position: absolute;
             top: 10px;
             width: 20px;
@@ -39,15 +39,15 @@
                 margin: 10px 0px;
 
                 span {
-                    background: $bg-white !important;
-                    color: $black !important;
+                    background: vars.$bg-white !important;
+                    color: vars.$black !important;
                     padding: 3px 8px;
                     border-radius: 50px;
                     font-size: 12px;
                 }
             }
             .datetime{
-                font-size: $font-14;
+                font-size: vars.$font-14;
             }
         }
 
@@ -83,8 +83,8 @@
 
             .edit {
                 cursor: pointer;
-                color: $bg-white !important;
-                border: 1px solid $bg-white !important;
+                color: vars.$bg-white !important;
+                border: 1px solid vars.$bg-white !important;
                 width: 35px;
                 height: 35px;
                 border-radius: 50%;
@@ -93,16 +93,16 @@
                 i {
                     top: 4px;
                     position: relative;
-                    color: $bg-white !important;
+                    color: vars.$bg-white !important;
                 }
             }
             .profile-name{
-                color: $ping-color;
-                font-size: $font-18;
+                color: vars.$ping-color;
+                font-size: vars.$font-18;
                 font-weight: 700;
                 .role{
-                    color: $bg-white;
-                    font-size: $font-14;
+                    color: vars.$bg-white;
+                    font-size: vars.$font-14;
                     font-weight: 600;
                     display: block;
                 }

@@ -1,9 +1,10 @@
-
-.header{
+.header {
     padding: 0 60px;
+
     .search-container {
         position: relative;
         flex: 1;
+
         input {
             width: 100%;
             padding: 10px 40px 10px 35px;
@@ -13,17 +14,19 @@
             border-radius: 20px;
             outline: none;
         }
+
         .icon {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 18px; 
+            font-size: 18px;
         }
+
         .bi-search {
             left: 11px;
             position: relative;
             top: 36px;
-        
+
         }
     }
 }
@@ -37,15 +40,14 @@
 
 .grid-stack {
     /* background: rgb(248, 248, 248); */
-  }
-  
-  .grid-stack-item-content {
+}
+
+.grid-stack-item-content {
     color: #2c3e50;
     /* text-align: center; */
     /* background-color: #18bc9c; */
-  }
+}
+
 .react-grid-item {
     max-width: 100%;
 }
-
- 

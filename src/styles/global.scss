@@ -1,22 +1,22 @@
-@import './variables.scss';
+@use './variables.scss' as vars;
 
 body{
-    font-family: $fontfamily;
-    background-color: $bg-blue !important;   
+    font-family: vars.$fontfamily;
+    background-color: vars.$bg-blue !important;   
     
-    font-size: $font-body;
+    font-size: vars.$font-body;
     padding: 0;  
-    color: $bg-white !important; 
+    color: vars.$bg-white !important; 
     
 }
 p,h1,h2,h3,h4,h5{
-    font-family: $fontfamily;
-    font-size: $font-body;
+    font-family: vars.$fontfamily;
+    font-size: vars.$font-body;
 }
 
 a{
     text-decoration: none !important;
-    color: $fontcolor !important;
+    color: vars.$fontcolor !important;
 }
 .card-widget{
     border: none;
@@ -25,8 +25,8 @@ a{
 }
 .card{
     border-radius: 0 !important;
-    height: 100%;
-    color: $bg-white;
+    // height: 100%;
+    color: vars.$bg-white;
 }
 .card-header{
     display: flex;
@@ -43,10 +43,10 @@ a{
         border-radius: 50%;
     }
     .title {
-        font-size: $font-24;
+        font-size: vars.$font-24;
         font-weight: bold;
         margin: 0;
-        color: $fontcolor;
+        color: vars.$fontcolor;
     }
 }
 
@@ -76,7 +76,7 @@ img{
     /* Smooth fade-in effect */
     font-size: 24px;
     /* Adjust icon size as needed */
-    color: $bg-white;
+    color: vars.$bg-white;
     /* Icon color */
     &:hover{
         cursor: pointer;
@@ -86,13 +86,13 @@ img{
     }
 }
 .btn_style{
-    background-color: $bg-green;   
-    color: $bg-white;
+    background-color: vars.$bg-green;   
+    color: vars.$bg-white;
     padding: 16px 33px;
-    font-size: $font-14;
-    transition: $transition;
+    font-size: vars.$font-14;
+    transition: vars.$transition;
     &:hover{
-        background-color: $bg-blue;
+        background-color: vars.$bg-blue;
     }
 }
 .section_{
@@ -135,7 +135,7 @@ ul{
     width: 12px;
     height: 12px;
     border: none;
-    background: url(../assets/images/dropdown-arrow.png) no-repeat;
+    background: url(images/dropdown-arrow.png) no-repeat;
     margin: 0;
     position: absolute;
     right: 0;
@@ -143,7 +143,7 @@ ul{
     transform: translateY(-50%);
 }
 .card-body{
-    color: $fontcolor !important;
+    color: vars.$fontcolor !important;
     .card-header{
         background-color: transparent;
     }
