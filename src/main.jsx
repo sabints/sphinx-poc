@@ -13,24 +13,15 @@ import DashBoard from './features/Dashboard/DashboardPage.jsx'
 import HomePage from './pages/Home/HomePage.jsx'
 import EngagementDetailsPage from './pages/EngagementPage/EngagementDetails.jsx'
 import EngagementPage from './pages/EngagementPage/EngagementPage.jsx'
+import App from './App.jsx'
+import { AuthProvider } from './features/Auth/AuthProvider.jsx'
 
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"></link>
-
-const _router = createHashRouter([
-  {
-    path: '/',
-    element: <AppLayuout />,
-    children: [
-      { index: true, element: <HomePage /> },
-      { path: 'engagement', element: <EngagementPage /> },
-      { path: 'engagement-details', element: <EngagementDetailsPage /> },
-      { path: 'admin', element: <ReactAdminGridLayout /> },
-      { path: 'dashboard', element: <DashBoard /> },
-    ],
-  },
-])
+ 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <RouterProvider router={_router} />
+  <StrictMode> 
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </StrictMode>,
 )
