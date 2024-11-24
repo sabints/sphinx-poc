@@ -8,12 +8,12 @@ import ReactAdminGridLayout from "../features/Admin/ReactAdminGridLayout"
 import DashBoard from "../features/Dashboard/DashboardPage"
 import { useAuth } from "../features/Auth/AuthProvider"
 import ErrorPage from "../pages/Misc/ErrorPage"
+import LoginPage from "../features/Auth/Login"
 
 
 const ProtectedRoute = ({ children }) => {
-    debugger;
     const { state } = useAuth();
-    const isAuthenticated =false;// !!state.user;
+    const isAuthenticated = !!state.user;
     return isAuthenticated ? children : <Navigate to="un-authorized" replace />
 }
 
@@ -25,6 +25,7 @@ const AppRoutes = () => {
             <Routes>
                 {/* Public Route */}
                 <Route path="/un-authorized" element={<ErrorPage />} />
+                <Route path="/login" element={<LoginPage />} />
 
                 {/* Protected Routes */}
                 <Route path="/" element={<ProtectedRoute><AppLayuout /></ProtectedRoute>} >

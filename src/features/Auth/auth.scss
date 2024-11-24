@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+$gray-color: #eee;
+$input-color: #e4eff8;
+$label-color: #999;
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #262936;
+    margin: 0;
+    height: 100vh;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -5%;
+    .content {
+        background-color: #292C3A;
+        padding: 30px 15px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 500px;
+        min-width: 200px;
+
+        button {
+            padding: 15px;
+            width: 100%;
+            border: unset;
+            background: #262936;
+            border-radius: 50px;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+
+            &:focus {
+                outline: none;
+            }
+
+            img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        header {
+            text-align: center;
+
+            h1 {
+                color: #fff;
+                margin-top: 0;
+                font-size: 230%;
+            }
+        }
+
+        .login-form {
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .input-group {
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                width: 100%;
+                max-width: 310px;
+
+                input {
+                    padding: 15px;
+                    font-size: 13px;
+                    border: 1px solid #262936;
+                    background-color: #262936;
+                    border-radius: 50px;
+                    tranistion: background .5s;
+                    -webkit-tranistion: background .5s;
+
+                    &:focus {
+                        color: #fff;
+                        outline: 0;
+                    }
+                }
+
+                label {
+                    color: $label-color;
+                    font-size: 12px;
+                    margin-bottom: 3px;
+                    margin-left: 16px;
+                }
+
+                button {
+                    background-color: #3f5bd8;
+                    border: unset;
+                    color: #fff;
+                    align-self: center;
+                    margin-top: 15px;
+                    transition: background .5s;
+                    -webkit-transition: background .5s;
+
+                    &:hover {
+                        background-color: #262936;
+                    }
+                }
+            }
+        }
+
+        footer {
+            padding-top: 15px;
+            text-align: center;
+
+            a {
+                color: #999;
+                text-decoration: none;
+                font-size: 11px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .wrapper {
+        .content {
+            padding-right: 0;
+            padding-left: 0;
+            margin: 0 10px;
+        }
+    }
+}

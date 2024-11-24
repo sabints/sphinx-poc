@@ -17,8 +17,7 @@ function DashBoard() {
         const queryParams = new URLSearchParams(window.location.search)
         const param1 = queryParams.get('template');
         const fetchSampleTemplate = async () => {
-            try {
-                debugger;
+            try { 
                 // Reference to the document
                 const docRef = doc(db, "Client - Barclays", param1 == undefined ? "Workspace-Templatev00" : param1);
 
