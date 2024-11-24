@@ -14,7 +14,7 @@ import LoginPage from "../features/Auth/Login"
 const ProtectedRoute = ({ children }) => {
     const { state } = useAuth();
     const isAuthenticated = !!state.user;
-    return isAuthenticated ? children : <Navigate to="un-authorized" replace />
+    return isAuthenticated ? children : <Navigate to="login" replace />
 }
 
 
@@ -25,7 +25,7 @@ const AppRoutes = () => {
             <Routes>
                 {/* Public Route */}
                 <Route path="/un-authorized" element={<ErrorPage />} />
-                <Route path="/login" element={<LoginPage />} />
+                <Route path="/login" index element={<LoginPage />} />
 
                 {/* Protected Routes */}
                 <Route path="/" element={<ProtectedRoute><AppLayuout /></ProtectedRoute>} >
