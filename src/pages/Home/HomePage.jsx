@@ -1,5 +1,6 @@
 import React from 'react';
 import './../pages.scss'
+import ContentRibbonWidget from '../../components/widgets/content-ribbon/ContentRibbon';
 
 function HomePage() {
   return  (
@@ -29,7 +30,9 @@ function HomePage() {
         </div>
       </section>
       <section className='strategy_value_sec'>
-        <div className='container'>
+        <ContentRibbonWidget properties={{image:import.meta.env.BASE_URL + "images/strategy-img.jpg", heading:"KPMG Leverages Technology to Drive Audit Strategy and Value" , textContent:"We have sought to embed technology in our audit since we became Barclays auditors in 2017, doing this thoughtfully in the areas that make sense, and only where technology delivers enhanced audit quality, increased efficiencies, and greater insight. The roadmap below demonstrates the technology we have progressively deployed year on year from 2017 – 2023, and continues to be in use today"} }  />
+        {/* <ContentRibbonWidget properties={{heading:"test", text:"s"} }  /> */}
+        {/* <div className='container'>
           <div className='row'>
             <div className='col-sm-4 lft_img'>
               <img src={import.meta.env.BASE_URL + "images/strategy-img.jpg"} alt="" width="auto" />
@@ -44,7 +47,7 @@ function HomePage() {
               
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
       <section className='audit_timeline_ section_'>

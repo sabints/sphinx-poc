@@ -2,9 +2,14 @@
 @use './../styles/variables.scss' as vars;
 
 .banner {
-    height: calc(67vh - 99px);
+    background-image: url('../../public/images/banner.jpg') !important;
+    z-index: -2;
+    background-size: cover;
+    background-clip: content-box;
 
     .container {
+        padding-top: 12rem;
+        padding-bottom: 6rem;
         height: 100%;
         display: flex;
         justify-content: center;
@@ -57,7 +62,8 @@
 
     .container {}
 
-    .lft_img {
+    .img-container {
+        height: 100%;
         img {
             object-fit: cover;
             height: 100%;
@@ -88,7 +94,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        flex-wrap: wrap;
         .title_ {
             margin: 0;
         }
@@ -96,7 +102,7 @@
         .filter_options {
             display: flex;
             gap: 20px;
-
+            flex-wrap: wrap;
             select {
                 background: transparent;
                 border: none;
@@ -258,6 +264,7 @@
 }
 
 .crent_engmnt {
+    padding-bottom: 0 !important;
     .btn_wrap {
         display: flex;
         justify-content: flex-end;

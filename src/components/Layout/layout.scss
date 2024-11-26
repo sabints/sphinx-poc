@@ -8,18 +8,20 @@
 }
 
 .background-top {
-    background-image: url('https://s3-alpha-sig.figma.com/img/f043/9762/116ca53ab1b3e3a81a01f18847acf12b?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GjUQMPtUc~YrQk1V-9AJhKTYvVRGIvN4xSXUiocfrlbxAJNlbc1IWKwfn4awdJbgB6H-1JkBtJkonTSP1lwfUBYrtkBBqetSMQFDkhE22C3LrZOov8MocpxG27qHHFUGtXZuUaG0s8-B8DKLvYY-MJSLtjoKdoDSMpqzgT12mgL-umxTHer3U~eaZomTi~78PnE9lvyeOqnW1sC7CXar08S7qx47N9Dppn2j59n1LjpfTtYM2OP1Eez~Be4YYS4RslokWvbyKdhXTywpL3QKobY0UY9eCxobSBzDO6qgzn0hTWO8VWYY~ohKPxC2~TiiY8o~at0vsCdIpv~Y~kGXmw__') !important;
-    height: 100vh;
-    width: 100%;
-    position: absolute;
-    z-index: -2;
-    background-size: cover;
-    background-clip: content-box;
-
+    // background-image: url('https://s3-alpha-sig.figma.com/img/f043/9762/116ca53ab1b3e3a81a01f18847acf12b?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GjUQMPtUc~YrQk1V-9AJhKTYvVRGIvN4xSXUiocfrlbxAJNlbc1IWKwfn4awdJbgB6H-1JkBtJkonTSP1lwfUBYrtkBBqetSMQFDkhE22C3LrZOov8MocpxG27qHHFUGtXZuUaG0s8-B8DKLvYY-MJSLtjoKdoDSMpqzgT12mgL-umxTHer3U~eaZomTi~78PnE9lvyeOqnW1sC7CXar08S7qx47N9Dppn2j59n1LjpfTtYM2OP1Eez~Be4YYS4RslokWvbyKdhXTywpL3QKobY0UY9eCxobSBzDO6qgzn0hTWO8VWYY~ohKPxC2~TiiY8o~at0vsCdIpv~Y~kGXmw__') !important;
+    // height: 100vh;
+    // width: 100%;
+    // position: absolute;
+    // z-index: -2;
+    // background-size: cover;
+    // background-clip: content-box;
 }
 
 .header {
-    position: relative;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 95%;
     margin-right: 80px;
 
     .search-container {
@@ -100,12 +102,10 @@
 .bread-crumbs {
     position: relative;
     margin-bottom: 20px;
-    padding: 0rem 15.2rem;
 }
 
 
 .footer {
-    padding-bottom: 50px;
 
     .foot_list {
         display: flex;
@@ -126,11 +126,17 @@
 }
 
 .profile_banner {
-    height: calc(67vh - 144px);
+    background-image: url('../../../public/images/banner.jpg') !important;
+    z-index: -2;
+    background-size: cover;
+    background-clip: content-box;
 
     .container {
+        padding-top: 10rem;
+        padding-bottom: 4rem;
         height: 100%;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 }

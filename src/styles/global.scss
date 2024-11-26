@@ -3,7 +3,6 @@
 body{
     font-family: vars.$fontfamily;
     background-color: vars.$bg-blue !important;   
-    
     font-size: vars.$font-body;
     padding: 0;  
     color: vars.$bg-white !important; 
@@ -117,6 +116,7 @@ ul{
             padding: 0.5rem 2.2rem 0.5rem 0;
             background: transparent;
             border: none;
+            font-size: vars.$font-14;
         }
 
         ul {
