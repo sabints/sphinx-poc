@@ -8,7 +8,9 @@ function ContentRibbonWidget({ properties }) {
             <div className='ribbon-widget'>
                 {
                     textContent != '' && (
-                        <div className='info-image'>
+                        <div className='container'>
+                            <div className='row'>
+                                <div className='col-sm-4 lft_img'>
                             {
                                 image != "" && (
 
@@ -18,13 +20,18 @@ function ContentRibbonWidget({ properties }) {
 
                                 )
                             }
+                            </div>
                             {
-                                <div className='info-container'>
-                                    {heading && <h2>{heading}</h2>}
-                                    {textContent && <p>{textContent}</p>}
+                                <div className='col-sm-8'>
+                                    <div className='txt_box'>
+                                    {heading && <h2 className='head_'>{heading}</h2>}
+                                    {textContent && <div className='txt_style'><p>{textContent}</p></div>}
+                                    </div>
                                 </div>
                             }
 
+                        
+                        </div>
                         </div>
                     )
                 }
@@ -74,5 +81,6 @@ ContentRibbonWidget.propTypes = {
         )
     })
 }
+
 
 export default ContentRibbonWidget;
