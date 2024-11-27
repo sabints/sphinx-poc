@@ -51,6 +51,10 @@
                 line-height: 2.8rem;
                 li{
                     list-style: inside;
+                    font-size: vars.$font-body;
+                    @media screen and (min-width: 1919px) {
+                        font-size: vars.$font-20;
+                    }
                     a{
                         text-decoration: underline !important;
                         &:hover{

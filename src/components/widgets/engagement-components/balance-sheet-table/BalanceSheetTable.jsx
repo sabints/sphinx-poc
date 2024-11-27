@@ -5,8 +5,44 @@ import React from 'react'
 
 export default function BalanceSheetTable({ data }) {
     return (
-        <>
-            <div className='sheet-table'>
+        <div className='table_wrap'>
+        <div className='table-scroll'>
+        <table className='sheet-table'>
+            <thead className='sheet-header'>
+                <tr>
+                    <th className='account'>
+                        <span>Account</span>
+                    </th>
+                    <th className='balance'>
+                         <span>Balance</span>
+                        <span><i className='bi bi-filter-left'></i></span>
+                    </th>
+                    <th>
+                        <span>Top Audit Technologies Used</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody className='sheet-columns'>
+                {data.map((item, index) => (
+                    <tr key={item.id + index} className='sheet-row'>
+                        <td className='account '>
+                            <a href='#/engagement-details'>{item.account}</a>
+                        </td>
+                        <td className='balance '>
+                            {Intl.NumberFormat().format(item.balance)}
+                        </td>
+                        <td className='tools scrollable-column'>
+                            {item.tools.map((tool, index) => (
+                                <span key={tool.toolname + index} style={{ backgroundColor: tool.color }}>
+                                    {tool.toolname}
+                                </span>
+                            ))}
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+            {/* <div className='sheet-table'>
                 <div className='sheet-header'>
                     <div className='account sticky-column'>
                         <span>Account</span>
@@ -38,8 +74,9 @@ export default function BalanceSheetTable({ data }) {
                         </div>
                     ))}
                 </div>
-            </div>
-        </>
+            </div> */}
+        </div>
+        </div>
     )
 }
 

@@ -128,7 +128,7 @@ function EngagementPage() {
       </section>
       <section className='account-table-section'> 
         <div className='container'>
-          <label>FY 2024 Final Audit Accounts & Technologies</label>
+          <label className='title_'>FY 2024 Final Audit Accounts & Technologies</label>
           <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li className="nav-item" role="presentation">
               <button className="nav-link active" id="pills-balance-sheet-tab" data-bs-toggle="pill" data-bs-target="#pills-balance-sheet" type="button" role="tab" aria-controls="pills-balance-sheet" aria-selected="true">

@@ -28,13 +28,19 @@ export default function NavbarComponent() {
             </div>
             <div className='menu'>
                 <div>
-                    <a href='#/'><i className='bi bi-house'></i></a>
+                    <a href='#/'>
+                        <img src={import.meta.env.BASE_URL + "images/home-icon.svg"} alt="" width="auto" />
+                    </a>
                 </div>
                 <div>
-                    <a href='#/engagement'><i className='bi bi-grid-fill'></i></a>
+                    <a href='#/engagement'>
+                        <img src={import.meta.env.BASE_URL + "images/dash-icon.svg"} alt="" width="auto" />
+                    </a>
                 </div>
                 <div>
-                    <a><i className='bi bi-file-text-fill'></i></a>
+                    <a>
+                        <img src={import.meta.env.BASE_URL + "images/insights-dash-icon.svg"} alt="" width="auto" />
+                    </a>
                 </div>
             </div>
         </div>

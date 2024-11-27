@@ -117,7 +117,7 @@ function HomePage() {
         <div className='container'>
           <label className='title_'>Your Engagement Team</label>
           <div className='row align-items-center'>
-            <div className='col-sm-6'>
+            <div className='col-sm-6 left_sec'>
               <div className='team_detail'>
                 <div className='img_'>
                   <img src={import.meta.env.BASE_URL + "images/team-img1.png"} alt="" width="auto" />
