@@ -57,10 +57,11 @@
 }
 
 .side-nav-bar {
+    position: sticky;
     display: flex;
-    width: 88px;
-    height: 384px;
-    padding: 72px 0px 23px 0px;
+    width: 60px;
+    height: 340px;
+    padding: 50px 0px 23px 0px;
     flex-direction: column;
     align-items: center;
     gap: 16px;
@@ -70,31 +71,53 @@
     position: absolute;
     top: 0;
     right: 35px;
-
+    @media screen and (min-width: 1919px) {
+        width: 88px;
+        padding: 72px 0px 23px 0px;
+        height: 384px;
+        @media screen and (min-width: 1919px) {
+            
+        }
+        
+    }
     .profile {
         display: flex;
-        font-size: 22px;
+        font-size: vars.$font-20;
         font-style: normal;
         font-weight: 600;
         background: #510DBC;
-        padding: 8px 10px;
-        border-radius: 100%;
-        height: 50px;
-        width: 50px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        @media screen and (min-width: 1919px) {
+            height: 50px;
+            width: 50px;
+            font-size: 22px;
+        }
 
     }
 
     .menu {
         display: flex;
-        padding-top: 29px;
+        padding-top: 20px;
         flex-direction: column;
         align-items: center;
         gap: 28px;
         align-self: stretch;
         font-size: 25px;
-
+        @media screen and (min-width: 1919px) {
+            padding-top: 29px;
+        }
         div {
             cursor: pointer;
+            a{
+                opacity: .6;
+                transition: .3s ease;
+                &:hover{
+                    opacity: 1;
+                }
+            }
         }
     }
 }
@@ -102,6 +125,10 @@
 .bread-crumbs {
     position: relative;
     margin-bottom: 20px;
+    font-size: vars.$font-14;
+    @media screen and (min-width: 1919px) {
+        font-size: vars.$font-body;
+    }
 }
 
 
@@ -110,7 +137,7 @@
     .foot_list {
         display: flex;
         gap: 15px;
-
+        margin-bottom: 30px;
         li {
             a {
                 color: vars.$fontcolor;

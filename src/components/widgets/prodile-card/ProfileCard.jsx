@@ -9,13 +9,13 @@ function ProfileCard({ properties }) {
             <div className="card-body">
                 <div className="text-content-container">
                     <div className="card-header">
-                    <span className="title">{HeaderLeft}</span>
+                        <span className="title">{HeaderLeft}</span>
                         <div className='icon-drag'>
                             <i className="bi bi-arrows-move"></i>
                         </div>
                         <span className="amount-text">{HeaderRight}</span>
                     </div>
-                    <div className="tx-content">
+                    <div className="txt-content">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                         industry's standard dummy text
                         <br /><br />
