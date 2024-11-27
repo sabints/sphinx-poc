@@ -36,6 +36,7 @@ a{
     font-size: 24px;
     font-weight: 700;
     border: none;
+    padding-left: 0 !important;
     .icon_ {
         width: 30px;
         height: 30px;
@@ -46,6 +47,9 @@ a{
         font-weight: bold;
         margin: 0;
         color: vars.$fontcolor;
+        @media screen and (min-width: 1919px) {
+            font-size: vars.$font-36;
+        }
     }
 }
 
@@ -90,6 +94,9 @@ img{
     padding: 16px 33px;
     font-size: vars.$font-14;
     transition: vars.$transition;
+    @media screen and (min-width: 1919px) {
+        font-size: vars.$font-body;
+    }
     &:hover{
         background-color: vars.$bg-blue;
     }
@@ -101,6 +108,7 @@ img{
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 30px;
+    letter-spacing: -0.5px;
 }
 ul{
    padding-left: 0 !important;
@@ -117,6 +125,9 @@ ul{
             background: transparent;
             border: none;
             font-size: vars.$font-14;
+            @media screen and (min-width: 1919px) {
+                font-size: vars.$font-body;
+            }
         }
 
         ul {
@@ -146,5 +157,10 @@ ul{
     color: vars.$fontcolor !important;
     .card-header{
         background-color: transparent;
+    }
+}
+@media screen and (min-width: 1919px) {
+    .container{
+        max-width: 1530px;
     }
 }

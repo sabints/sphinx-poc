@@ -43,7 +43,7 @@ function ContentRibbonWidget({ properties }) {
 
                                 <>
                                     <div className='item-content'>
-                                        <h3>{item.heading}</h3>
+                                        <h3 className='title_'>{item.heading}</h3>
                                         <ul>
                                             {item.listItem &&
                                                 item.listItem.map((listItem, subIndex) => (

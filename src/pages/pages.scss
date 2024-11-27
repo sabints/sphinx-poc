@@ -14,6 +14,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        .row{
+            @media screen and (max-width: 1024px) {
+                align-items: center;
+            }
+        }
     }
 
     .banner_title {
@@ -21,7 +26,12 @@
         font-size: 42px;
         padding-right: 10%;
         line-height: 1.6;
-
+        @media screen and (min-width: 1919px) {
+            font-size: 58px;
+        }
+        @media screen and (max-width: 1024px) {
+            font-size: 34px;
+        }
         span {
             font-weight: 700;
             display: block;
@@ -30,7 +40,9 @@
 
     .banner_txt {
         padding-right: 10%;
-
+        @media screen and (max-width: 1024px) {
+            padding-right: 15%;
+        }
         .head_ {
             color: vars.$Secondary-Light-Purple;
             font-size: 24px;
@@ -135,7 +147,10 @@
         display: flex;
         align-items: center;
         gap: 20px;
-
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
         .img_ {
             width: 280px;
             height: 280px;
@@ -177,7 +192,14 @@
             }
         }
     }
-
+    .left_sec{
+        .team_detail{
+            @media screen and (max-width: 1024px) {
+                text-align: center;
+                align-items: center;
+            }
+        }
+    }
     .right_sec {
         .team_detail {
             margin-bottom: 40px;
@@ -208,18 +230,6 @@
 .account-table-section {
     margin: 3rem 0rem;
     overflow: hidden;
-    label {
-
-        font-family: "Open Sans";
-        font-size: 32px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 40px;
-        /* 125% */
-        letter-spacing: -0.5px;
-        margin-bottom: 2rem;
-    }
-
     .nav {
         gap: 25px;
 
